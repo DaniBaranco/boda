@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Informacion practica para la boda de Almu y Dani: horarios, lugares y acceso al formulario de inscripcion."
+    />
+    <title>Informacion | Almu & Dani</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css?v=4" />
+    <!-- PDF generation libs (UMD globals) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <!-- Confetti library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
+  </head>
+  <body>
+    <div class="page-background page-background--info" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <button id="confettiBtn" class="confetti-btn" title="Lanzar confeti" aria-label="Lanzar confeti">🎉</button>
+      <figure class="site-logo">
+        <img src="./images/labanda.png" alt="Logo de la banda" />
+      </figure>
+      <a class="brand" href="./index.html">Almu & Dani</a>
+      <p class="site-date" data-wedding-field="date">03-07-2027</p>
+    </header>
+
+    <main class="info-main">
+      <section class="glass-panel section-card">
+        <h1>Todo lo que necesitas para venir tranquilo</h1>
+        <p>
+          Queremos que disfrutes sin preocuparte de nada. En esta pagina reunimos la informacion principal
+          del dia y te dejamos el acceso directo al formulario de inscripcion.
+        </p>
+        <div class="invite-download-row">
+          <button id="downloadInviteBtn" class="btn btn-invite-download" type="button">
+            <span class="invite-btn-icon" aria-hidden="true">&#10515;</span>
+            Descargar invitacion en PDF
+          </button>
+          <p class="invite-download-hint">Guardala en tu movil para tener todos los detalles a mano.</p>
+        </div>
+      </section>
+
+      <section class="timeline-grid">
+        <article class="glass-panel section-card">
+          <h2>Ceremonia</h2>
+          <p>
+            <strong>Lugar:</strong> <span data-wedding-field="ceremony">Iglesia St. Maria Magdalena</span>
+          </p>
+          <p>
+            <strong>Municipio:</strong> <span data-wedding-field="location">Torrelavega (Madrid)</span>
+          </p>
+          <p>
+            <strong>Hora:</strong> 18.30h
+          </p>
+          <a
+            class="btn btn-como-llegar"
+            href="https://www.google.com/maps/dir/?api=1&destination=Iglesia+de+Santa+Maria+Magdalena+Torremocha+del+Jarama+Madrid"
+            target="_blank"
+            rel="noreferrer noopener"
+          >&#128205; Como llegar a la iglesia</a>
+          <div class="section-images" aria-label="Imagenes de la ceremonia">
+            <figure class="section-image-card">
+              <img src="./images/entrada_finca.jpeg" alt="Entrada con encanto para la ceremonia" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="glass-panel section-card">
+          <h2>Celebracion</h2>
+          <p><strong>Finca:</strong> <span data-wedding-field="venue">Finca Casa de Oficios</span></p>
+          <p>
+            <strong>Municipio:</strong> <span data-wedding-field="location">Torremocha del Jarama (Madrid)</span>
+          </p>
+          <p>
+            <strong>Hora:</strong> 20.00h
+          </p>
+          <a
+            class="btn btn-como-llegar"
+            href="https://www.google.com/maps/dir/?api=1&destination=Finca+Casa+de+Oficios+Torremocha+del+Jarama+Madrid"
+            target="_blank"
+            rel="noreferrer noopener"
+          >&#128205; Como llegar a la finca</a>
+          <div class="section-images" aria-label="Imagenes de la celebracion">
+            <figure class="section-image-card">
+              <img src="./images/mesas_finca.jpg" alt="Mesas preparadas para la celebracion" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="glass-panel section-card section-card--cta">
+          <h2>Inscripcion de invitados</h2>
+          <p>
+            El formulario de Google Forms guarda respuestas automaticamente en Google Sheets,
+            para que podamos gestionar confirmaciones y preferencias de forma visual.
+          </p>
+          <a data-register-link class="btn btn-band-gradient form-open-cta" href="#">Abrir formulario</a>
+        </article>
+      </section>
+
+      <section class="glass-panel section-card faq-section" aria-label="Preguntas frecuentes">
+        <h2>Preguntas frecuentes</h2>
+        <p class="faq-intro">
+          Si tienes dudas sobre transporte, menu o logistica, aqui tienes respuestas rapidas.
+        </p>
+
+        <details class="faq-item" open>
+          <summary>Habra servicio de autobus para ir y volver?</summary>
+          <div class="faq-content">
+            <p>
+              Si. Habra servicio de ida y vuelta y ajustaremos plazas segun las respuestas del formulario.
+              Cuando cerremos horarios exactos, los publicaremos aqui para que podais organizaros facilmente.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Como comunicamos intolerancias o alergias alimentarias?</summary>
+          <div class="faq-content">
+            <p>
+              En el formulario de inscripcion tienes un campo especifico para alergias, intolerancias y preferencias.
+              Revisaremos cada caso con el catering para que todo este bien preparado el dia de la boda.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Hay opciones vegetarianas, veganas o menu infantil?</summary>
+          <div class="faq-content">
+            <p>
+              Si. Contaremos con opciones vegetarianas, veganas y menu infantil.
+              Solo tienes que indicarlo en la inscripcion para dejar cada menu confirmado con antelacion.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Hasta cuando puedo confirmar asistencia?</summary>
+          <div class="faq-content">
+            <p>
+              Te recomendamos confirmar cuanto antes para ayudarnos con la organizacion.
+              La fecha limite oficial de RSVP se comunicara por el mismo canal de invitacion y se reflejara en esta pagina.
+            </p>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <!-- Hidden invitation card — rendered by html2canvas for PDF export -->
+    <div
+      id="inviteCard"
+      class="invite-card"
+      aria-hidden="true"
+      style="background-image: url('./images/wedding-venue.jpg');"
+    >
+      <div class="invite-overlay"></div>
+      <div class="invite-body">
+        <p class="invite-eyebrow">Con mucha ilusion os invitamos a nuestra boda</p>
+        <h2 class="invite-couple">Almu &amp; Dani</h2>
+        <p class="invite-date">03 &middot; 07 &middot; 2027</p>
+        <div class="invite-divider"></div>
+        <div class="invite-details">
+          <div class="invite-detail-block">
+            <p class="invite-detail-label">Ceremonia</p>
+            <p class="invite-detail-value">Iglesia de Santa Maria Magdalena</p>
+            <p class="invite-detail-sub">Torremocha del Jarama, Madrid</p>
+          </div>
+          <div class="invite-detail-block">
+            <p class="invite-detail-label">Celebracion</p>
+            <p class="invite-detail-value">Finca Casa de Oficios</p>
+          </div>
+        </div>
+        <div class="invite-divider"></div>
+        <p class="invite-footer">Os esperamos con mucha ilusion</p>
+      </div>
+    </div>
+
+    <a data-register-link class="mobile-register-cta" href="#">Inscripcion</a>
+
+    <script type="module" src="./js/app.js?v=4"></script>
+    <script type="module" src="./js/invitation.js?v=1" onload=""></script>
+    <script type="module">
+      import { initInvitation } from './js/invitation.js?v=1';
+      import { initConfetti } from './js/confetti.js?v=1';
+      initInvitation();
+      initConfetti();
+    </script>
+  </body>
+</html>

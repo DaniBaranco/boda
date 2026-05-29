@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="App de inscripcion para la boda de Almu y Dani. Informacion del evento y acceso directo al formulario de invitados."
+    />
+    <title>Almu & Dani | Boda 03-07-2027</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css?v=4" />
+    <!-- Confetti library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
+  </head>
+  <body>
+    <div class="page-background" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <button id="confettiBtn" class="confetti-btn" title="Lanzar confeti" aria-label="Lanzar confeti">🎉</button>
+      <figure class="site-logo">
+        <img src="./images/labanda.png" alt="Logo de la banda" />
+      </figure>
+      <a class="brand" href="./index.html">Almu & Dani</a>
+      <p class="site-date" data-wedding-field="date">03-07-2027</p>
+    </header>
+
+    <main>
+      <section class="hero">
+        <article class="hero-card glass-panel">
+          <div class="hero-content">
+            <p class="eyebrow">¡Nos casamos!</p>
+            <p class="hero-subtitle">
+              Te invitamos a celebrar con nosotros un dia inolvidable.
+            </p>
+
+            <dl class="event-grid">
+              <div>
+                <figure class="event-logo">
+                  <img src="./images/finca.png" alt="Logo Finca" />
+                </figure>
+                <dt>Finca</dt>
+                <dd data-wedding-field="venue">Finca Casa de Oficios</dd>
+                <figure class="event-mobile-photo">
+                  <img src="./images/entrada_finca.jpeg" alt="Entrada de la finca" />
+                </figure>
+              </div>
+              <div>
+                <figure class="event-logo">
+                  <img src="./images/church.png" alt="Logo Iglesia" />
+                </figure>
+                <dt>Ceremonia</dt>
+                <dd data-wedding-field="ceremony">Iglesia de Santa Maria Magdalena</dd>
+                <figure class="event-mobile-photo">
+                  <img src="./images/iglesia-torrelaguna.png" alt="Iglesia de Santa Maria Magdalena en Torrelaguna" />
+                </figure>
+              </div>
+              <div>
+                <figure class="event-logo">
+                  <img src="./images/location.png" alt="Logo Ubicación" />
+                </figure>
+                <dt>Ubicacion</dt>
+                <dd data-wedding-field="location">Torremocha del Jarama</dd>
+                <div class="event-mobile-map" aria-label="Mapa de la Iglesia de Santa Maria Magdalena en Torrelaguna">
+                  <iframe
+                    title="Mapa Iglesia de Santa Maria Magdalena, Torrelaguna"
+                    src="https://www.google.com/maps?q=Iglesia%20de%20Santa%20Maria%20Magdalena%20Torrelaguna%20Madrid&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+            </dl>
+
+            <div class="hero-actions">
+              <a data-register-link class="btn btn-band-gradient" href="#">Confirmar asistencia</a>
+              <a class="btn btn-gradient-border" href="./info.html">Ver detalles</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="home-note glass-panel section-card" aria-label="Mensaje de bienvenida">
+        <h2>Un fin de semana para recordar</h2>
+        <p>
+          Nos hace mucha ilusion compartir este momento con vosotros. Queremos una celebracion cercana,
+          divertida y llena de detalles bonitos, asi que en esta app tenéis toda la informacion clave y el acceso
+          directo a la inscripcion.
+        </p>
+      </section>
+
+      <section class="carousel-section glass-panel" aria-label="Ambiente de la celebracion">
+        <div class="carousel-track">
+          <figure class="carousel-slide"><img src="./images/entrada_finca.jpeg" alt="Entrada de la finca" /></figure>
+          <figure class="carousel-slide"><img src="./images/mesas_finca.jpg" alt="Mesas preparadas para invitados" /></figure>
+          <figure class="carousel-slide"><img src="./images/wedding-venue.jpg" alt="Espacio principal del evento" /></figure>
+          <figure class="carousel-slide"><img src="./images/entrada_finca.jpeg" alt="Zona de acceso a la finca" /></figure>
+          <figure class="carousel-slide"><img src="./images/mesas_finca.jpg" alt="Detalle de la decoracion de mesas" /></figure>
+          <figure class="carousel-slide"><img src="./images/wedding-venue.jpg" alt="Vista general del entorno de la boda" /></figure>
+          <figure class="carousel-slide"><img src="./images/entrada_finca.jpeg" alt="Camino de entrada a la celebracion" /></figure>
+
+          <figure class="carousel-slide" aria-hidden="true"><img src="./images/entrada_finca.jpeg" alt="" /></figure>
+          <figure class="carousel-slide" aria-hidden="true"><img src="./images/mesas_finca.jpg" alt="" /></figure>
+          <figure class="carousel-slide" aria-hidden="true"><img src="./images/wedding-venue.jpg" alt="" /></figure>
+          <figure class="carousel-slide" aria-hidden="true"><img src="./images/entrada_finca.jpeg" alt="" /></figure>
+          <figure class="carousel-slide" aria-hidden="true"><img src="./images/mesas_finca.jpg" alt="" /></figure>
+          <figure class="carousel-slide" aria-hidden="true"><img src="./images/wedding-venue.jpg" alt="" /></figure>
+          <figure class="carousel-slide" aria-hidden="true"><img src="./images/entrada_finca.jpeg" alt="" /></figure>
+        </div>
+      </section>
+    </main>
+
+    <a data-register-link class="mobile-register-cta" href="#">Inscripcion</a>
+
+    <script type="module" src="./js/app.js?v=3"></script>    <script type="module">
+      import { initConfetti } from './js/confetti.js?v=1';
+      initConfetti();
+    </script>  </body>
+</html>
