@@ -10,21 +10,38 @@ export function isSupabaseConfigured(config) {
 export function buildRegistrationPayload(formValues, config) {
   const registrationConfig = config?.registration ?? {};
   const companions = Number.parseInt(formValues.companions, 10);
+  const data = {
+    name: formValues.name?.trim() ?? "",
+    surname: formValues.surname?.trim() ?? "",
+    email: formValues.email?.trim() ?? "",
+    attending: formValues.attending === "si",
+    companions: Number.isFinite(companions) ? companions : 0,
+    needs_bus: formValues.needsBus === "si",
+    notes: formValues.notes?.trim() ?? "",
+    created_at: new Date().toISOString()
+  };
+
+  if (companions > 0) {
+    const companionName = formValues.companionName?.trim();
+    const companionSurname = formValues.companionSurname?.trim();
+
+    if (companionName) {
+      data.companion_name = companionName;
+    }
+    if (companionSurname) {
+      data.companion_surname = companionSurname;
+    }
+  }
+
+  Object.keys(data).forEach((key) => {
+    if (data[key] === "") {
+      delete data[key];
+    }
+  });
 
   return {
     tableName: registrationConfig.tableName,
-    data: {
-      name: formValues.name?.trim() ?? "",
-      surname: formValues.surname?.trim() ?? "",
-      email: formValues.email?.trim() ?? "",
-      attending: formValues.attending === "si",
-      companions: Number.isFinite(companions) ? companions : 0,
-      companion_name: formValues.companionName?.trim() ?? "",
-      companion_surname: formValues.companionSurname?.trim() ?? "",
-      needs_bus: formValues.needsBus === "si",
-      notes: formValues.notes?.trim() ?? "",
-      created_at: new Date().toISOString()
-    }
+    data
   };
 }
 
