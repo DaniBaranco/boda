@@ -124,8 +124,12 @@
         <p class="register-modal__intro">Rellena tus datos y los guardaremos en tu base de datos de Supabase.</p>
         <form id="registration-form" class="registration-form">
           <label>
-            Nombre completo
+            Nombre
             <input name="name" type="text" required />
+          </label>
+          <label>
+            Apellido
+            <input name="surname" type="text" required />
           </label>
           <label>
             Email
@@ -140,7 +144,24 @@
           </label>
           <label>
             Número de acompañantes
-            <input name="companions" type="number" min="0" max="6" value="0" />
+            <input id="companions-input" name="companions" type="number" min="0" max="6" value="0" />
+          </label>
+          <div data-companion-fields hidden aria-hidden="true">
+            <label>
+              Nombre del acompañante
+              <input name="companionName" type="text" />
+            </label>
+            <label>
+              Apellido del acompañante
+              <input name="companionSurname" type="text" />
+            </label>
+          </div>
+          <label>
+            ¿Necesitas autobús para desplazarte al lugar de la ceremonia?
+            <select name="needsBus" required>
+              <option value="si">Sí</option>
+              <option value="no">No</option>
+            </select>
           </label>
           <label>
             Notas o alergias

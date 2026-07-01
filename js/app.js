@@ -46,15 +46,29 @@ function attachRegistrationFormHandlers() {
   const closeButton = document.querySelector("[data-close-register-modal]");
   const form = document.querySelector("#registration-form");
   const statusNode = document.querySelector("#registration-status");
+  const companionFields = document.querySelector("[data-companion-fields]");
+  const companionsInput = document.querySelector("#companions-input");
 
   if (!modal || !form || !statusNode) {
     return;
   }
 
+  modal.hidden = true;
+  modal.setAttribute("aria-hidden", "true");
+
+  const toggleCompanionFields = () => {
+    const hasCompanion = Number.parseInt(companionsInput?.value ?? "0", 10) > 0;
+    if (companionFields) {
+      companionFields.hidden = !hasCompanion;
+      companionFields.setAttribute("aria-hidden", String(!hasCompanion));
+    }
+  };
+
   const openModal = () => {
     modal.hidden = false;
     modal.setAttribute("aria-hidden", "false");
     form.reset();
+    toggleCompanionFields();
     if (statusNode) {
       statusNode.textContent = "";
       statusNode.className = "registration-status";
@@ -79,6 +93,8 @@ function attachRegistrationFormHandlers() {
     event.preventDefault();
     closeModal();
   });
+
+  companionsInput?.addEventListener("input", toggleCompanionFields);
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
@@ -105,6 +121,7 @@ function attachRegistrationFormHandlers() {
       statusNode.textContent = "Inscripción guardada correctamente.";
       statusNode.className = "registration-status registration-status--success";
       form.reset();
+      toggleCompanionFields();
       setTimeout(closeModal, 900);
     } catch (error) {
       statusNode.textContent = error.message;
