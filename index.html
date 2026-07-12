@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./vendor/aos/aos.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=11" />
+    <link rel="stylesheet" href="./css/styles.css?v=12" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
     <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
@@ -31,6 +31,7 @@
     -->
   </head>
   <body>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
     <div class="page-background" aria-hidden="true"></div>
 
     <!-- Corazones flotando suavemente por detras del contenido -->
@@ -262,10 +263,11 @@
     <script type="module" src="./js/app.js?v=3"></script>
     <script type="module">
       import { initConfetti } from './js/confetti.js?v=1';
-      import { initCountdown, initRoadmap } from './js/roadmap.js?v=2';
+      import { initCountdown, initRoadmap, initScrollProgress } from './js/roadmap.js?v=3';
       initConfetti();
       initCountdown();
       initRoadmap();
+      initScrollProgress();
       AOS.init({ duration: 700, once: true, offset: 80 });
     </script>
   </body>

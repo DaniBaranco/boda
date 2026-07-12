@@ -913,6 +913,13 @@ h1 {
   min-height: auto;
 }
 
+/* En pantallas anchas el hero no se estira a todo el main: misma columna
+   centrada que el resto de bloques */
+.hero--roadmap .hero-card {
+  width: min(680px, 100%);
+  margin: 0 auto;
+}
+
 /* --- Cuenta atras --- */
 
 .countdown {
@@ -1128,6 +1135,54 @@ h1 {
   }
 }
 
+/* --- Desktop: timeline alternado a dos columnas --- */
+
+@media (min-width: 900px) {
+  main {
+    gap: 3rem;
+  }
+
+  .roadmap-section {
+    width: min(900px, 100%);
+  }
+
+  .roadmap {
+    padding: 0.2rem 0;
+  }
+
+  .roadmap::before,
+  .roadmap-progress {
+    left: calc(50% - 1.5px);
+  }
+
+  .stop {
+    width: calc(50% - 2.6rem);
+    margin-bottom: 2.2rem;
+  }
+
+  .stop:nth-of-type(even) {
+    margin-left: auto;
+  }
+
+  /* Los nodos se anclan a la linea central */
+  .stop:nth-of-type(odd) .stop-node {
+    left: auto;
+    right: calc(-2.6rem - 22px);
+  }
+
+  .stop:nth-of-type(even) .stop-node {
+    left: calc(-2.6rem - 22px);
+  }
+
+  .carousel-section {
+    --carousel-card-width: 280px;
+  }
+
+  .carousel-slide {
+    height: 160px;
+  }
+}
+
 /* Centrado fino de los iconos dentro de los nodos de la ruta:
    bootstrap-icons desplaza el glifo con vertical-align y descuadra el circulo */
 .stop-node i {
@@ -1155,6 +1210,21 @@ h1 {
 /* CTA fijo movil: flotacion suave arriba y abajo */
 .mobile-register-cta {
   animation: soft-bob 2.4s ease-in-out infinite;
+}
+
+/* --- Barra de progreso global de scroll --- */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 40;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
 }
 
 /* --- Corazones flotando de fondo --- */

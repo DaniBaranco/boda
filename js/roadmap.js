@@ -50,6 +50,32 @@ export function initCountdown() {
 }
 
 /**
+ * Barra de progreso global: una línea degradada en el borde superior que se
+ * rellena según el avance de scroll de toda la página.
+ */
+export function initScrollProgress() {
+  const bar = document.querySelector("[data-scroll-progress]");
+  if (!bar) return;
+
+  let scheduled = false;
+  const update = () => {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      bar.style.transform = `scaleX(${progress})`;
+      scheduled = false;
+    });
+  };
+
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+}
+
+/**
  * Hoja de ruta del día B:
  * - La línea de progreso se rellena según avanza el scroll.
  * - Cada parada se activa (miga de pan "pisada") al entrar en pantalla.
