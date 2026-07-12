@@ -36,10 +36,8 @@ body {
 h1,
 h2,
 .brand {
-  /* Tipografia manuscrita para titulos; sin letter-spacing para no romper
-     las ligaduras del trazo */
-  font-family: "Caveat", "Cormorant Garamond", cursive;
-  letter-spacing: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0.02em;
 }
 
 .page-background {
