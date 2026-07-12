@@ -900,15 +900,20 @@ h1 {
   }
 }
 
-/* Compatibilidad con Bootstrap: su regla .btn:hover lee estas variables;
-   sin definirlas, el texto de los botones perderia su color al pasar el raton */
+/* Compatibilidad con Bootstrap: sus reglas .btn:hover y .btn:active leen
+   estas variables; sin definirlas, el texto de los botones perderia su color
+   al pasar el raton o al pulsarlos */
 .btn {
   --bs-btn-hover-color: var(--text-main);
   --bs-btn-hover-bg: transparent;
+  --bs-btn-active-color: var(--text-main);
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: transparent;
 }
 
 .btn-band-gradient {
   --bs-btn-hover-color: #ffffff;
+  --bs-btn-active-color: #ffffff;
 }
 
 /* ============================================================
@@ -1270,6 +1275,44 @@ h1 {
     transform: translateY(-118vh) rotate(-4deg);
     opacity: 0;
   }
+}
+
+/* --- Toque 3D discreto en todos los CTAs (respetando su color) --- */
+
+.btn-band-gradient {
+  box-shadow: 0 3px 0 rgba(80, 67, 171, 0.55), 0 10px 24px rgba(80, 67, 171, 0.34);
+}
+
+.btn-band-gradient:hover {
+  box-shadow: 0 3px 0 rgba(80, 67, 171, 0.55), 0 14px 32px rgba(80, 67, 171, 0.5);
+}
+
+.btn-gradient-border,
+.btn-como-llegar,
+.btn-invite-download {
+  box-shadow: 0 3px 0 rgba(141, 93, 36, 0.26), 0 8px 18px rgba(67, 44, 18, 0.14);
+}
+
+.btn-gradient-border:hover,
+.btn-como-llegar:hover,
+.btn-invite-download:hover {
+  box-shadow: 0 3px 0 rgba(141, 93, 36, 0.26), 0 11px 24px rgba(67, 44, 18, 0.2);
+}
+
+/* Al pulsar, el boton se hunde y su sombra dura se comprime */
+.btn:active {
+  animation: none;
+  transform: translateY(2px);
+}
+
+.btn-band-gradient:active {
+  box-shadow: 0 1px 0 rgba(80, 67, 171, 0.55), 0 6px 14px rgba(80, 67, 171, 0.3);
+}
+
+.btn-gradient-border:active,
+.btn-como-llegar:active,
+.btn-invite-download:active {
+  box-shadow: 0 1px 0 rgba(141, 93, 36, 0.26), 0 5px 12px rgba(67, 44, 18, 0.14);
 }
 
 @media (prefers-reduced-motion: reduce) {
