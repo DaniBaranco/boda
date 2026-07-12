@@ -37,29 +37,29 @@ npm start          # sirve la web en http://localhost:8000 (requiere Python)
 
 ## Entornos
 
-La web se publica en **Vercel**.
+La web se publica en **Vercel**, conectado al repositorio Git: cada push despliega automaticamente.
 
-- **Produccion**: rama `main`, desplegada en la URL real de Vercel. Solo llegan cambios probados.
-- **Desarrollo**: rama `dev`. Cajon de sastre para experimentar sin afectar a produccion. Cada despliegue de prueba en Vercel genera una *Preview URL* propia.
+- **Produccion**: rama `main`. Cada push a `main` publica en la URL real de Vercel. Solo llegan cambios probados.
+- **Desarrollo**: rama `dev`. Cajon de sastre para experimentar sin afectar a produccion. Cada push a `dev` genera automaticamente una *Preview URL* propia en Vercel para ver la propuesta online.
 
-Flujo de trabajo con Vercel CLI:
+Flujo de trabajo:
 
 ```bash
 git switch dev         # trabajar y experimentar aqui
 npm start              # probar en local (http://localhost:8000)
-vercel                 # (opcional) despliegue de prueba con Preview URL propia
+git push               # Vercel crea una Preview URL con el experimento
 
 # cuando una propuesta este lista para publicar:
 git switch main
 git merge dev
-vercel --prod          # publica en produccion
+git push               # Vercel despliega produccion
 
 # si un experimento no convence, se descarta sin mas:
 git switch dev
 git reset --hard main  # dev vuelve a estar limpia como produccion
 ```
 
-Requisitos una sola vez: `npm install -g vercel`, `vercel login` y `vercel link` (vincula esta carpeta con el proyecto existente en Vercel).
+El CLI de Vercel (`vercel`) queda como opcion para despliegues manuales o consultar logs, pero no es necesario para el flujo normal.
 
 ## Configuracion
 
