@@ -10,6 +10,9 @@ export const APP_CONFIG = {
   },
   registration: {
     // Sustituye esta URL por la de tu Google Form real.
-    formUrl: "https://forms.gle/REEMPLAZAR_CON_FORM_REAL"
+    formUrl: "https://forms.gle/REEMPLAZAR_CON_FORM_REAL",
+    // URL del formulario del autobus (pendiente de crear). Mientras este
+    // vacia, el boton del autobus aparece deshabilitado.
+    busFormUrl: ""
   }
 };

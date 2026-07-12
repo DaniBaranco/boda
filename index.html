@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./vendor/aos/aos.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=6" />
+    <link rel="stylesheet" href="./css/styles.css?v=7" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
     <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
@@ -73,7 +73,6 @@
 
             <div class="hero-actions">
               <a data-register-link class="btn btn-band-gradient" href="#">Confirmar asistencia</a>
-              <a class="btn btn-gradient-border" href="#ruta">Ver la ruta del dia</a>
             </div>
           </div>
         </article>
@@ -83,9 +82,6 @@
       <nav class="route-nav" aria-label="Paradas del dia de la boda">
         <button type="button" class="route-crumb" data-crumb="stop-ceremonia">
           <i class="bi bi-heart-fill" aria-hidden="true"></i><span>Ceremonia</span>
-        </button>
-        <button type="button" class="route-crumb" data-crumb="stop-bus">
-          <i class="bi bi-bus-front" aria-hidden="true"></i><span>Bus</span>
         </button>
         <button type="button" class="route-crumb" data-crumb="stop-coctel">
           <i class="bi bi-cup-straw" aria-hidden="true"></i><span>Coctel</span>
@@ -124,19 +120,6 @@
                 target="_blank"
                 rel="noreferrer noopener"
               ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Como llegar a la iglesia</a>
-            </article>
-          </li>
-
-          <li class="stop" id="stop-bus" data-stop>
-            <span class="stop-node"><i class="bi bi-bus-front" aria-hidden="true"></i></span>
-            <article class="stop-card glass-panel">
-              <span class="stop-time">Tras la ceremonia</span>
-              <h3>Traslado en bus</h3>
-              <p>
-                Habra autobus de ida y vuelta para todos los invitados. Ajustaremos las plazas con las
-                respuestas del formulario, asi que no olvides confirmar asistencia.
-              </p>
-              <a data-register-link class="btn btn-como-llegar" href="#"><i class="bi bi-check2-circle" aria-hidden="true"></i> Reservar mi plaza</a>
             </article>
           </li>
 
@@ -270,6 +253,17 @@
         </details>
       </section>
 
+      <section class="glass-panel section-card bus-card" aria-label="Autobus de ida y vuelta" data-aos="fade-up">
+        <h2>¿Necesitaras autobus de ida y vuelta?</h2>
+        <p>
+          Pondremos un autobus para llegar a la celebracion y volver sin preocupaciones.
+          Reserva tu plaza en su formulario especifico: lo publicaremos aqui muy pronto.
+        </p>
+        <a data-bus-link class="btn btn-como-llegar" href="#">
+          <i class="bi bi-bus-front" aria-hidden="true"></i> Inscribirme al autobus
+        </a>
+      </section>
+
       <footer class="site-footer" aria-label="Enlaces adicionales">
         <a class="btn btn-gradient-border" href="./info.html">
           <i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i>
@@ -278,7 +272,7 @@
       </footer>
     </main>
 
-    <a data-register-link class="mobile-register-cta" href="#">Inscripcion</a>
+    <a data-register-link class="mobile-register-cta" href="#">Confirmanos tu asistencia</a>
 
     <script type="module" src="./js/app.js?v=3"></script>
     <script type="module">

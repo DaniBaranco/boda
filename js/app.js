@@ -30,9 +30,26 @@ function hydrateRegistrationLinks() {
   }
 }
 
+function hydrateBusLinks() {
+  const busLinks = [...document.querySelectorAll("[data-bus-link]")];
+  if (busLinks.length === 0) return;
+
+  try {
+    mapRegistrationLinks(APP_CONFIG.registration.busFormUrl, busLinks);
+  } catch {
+    // El formulario del autobus aun no existe: el boton queda deshabilitado.
+    busLinks.forEach((link) => {
+      link.setAttribute("href", "#");
+      link.setAttribute("aria-disabled", "true");
+      link.setAttribute("title", "El formulario del autobus estara disponible muy pronto");
+    });
+  }
+}
+
 function init() {
   hydrateWeddingInfo();
   hydrateRegistrationLinks();
+  hydrateBusLinks();
 }
 
 init();
