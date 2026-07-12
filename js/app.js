@@ -26,7 +26,7 @@ function hydrateRegistrationLinks() {
       link.setAttribute("title", "Configura la URL real de Google Forms en js/config.js");
     });
 
-    console.warn("No se pudo configurar el enlace de inscripcion:", error);
+    console.warn("No se pudo configurar el enlace de inscripción:", error);
   }
 }
 
@@ -37,11 +37,11 @@ function hydrateBusLinks() {
   try {
     mapRegistrationLinks(APP_CONFIG.registration.busFormUrl, busLinks);
   } catch {
-    // El formulario del autobus aun no existe: el boton queda deshabilitado.
+    // El formulario del autobús aún no existe: el botón queda deshabilitado.
     busLinks.forEach((link) => {
       link.setAttribute("href", "#");
       link.setAttribute("aria-disabled", "true");
-      link.setAttribute("title", "El formulario del autobus estara disponible muy pronto");
+      link.setAttribute("title", "El formulario del autobús estará disponible muy pronto");
     });
   }
 }

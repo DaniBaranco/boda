@@ -22,7 +22,7 @@ test("index.html contiene elementos críticos", () => {
 test("info.html contiene elementos críticos", () => {
   const content = readFileSync("info.html", "utf-8");
   assert.ok(content.includes("Ceremonia"), "info.html debe contener sección Ceremonia");
-  assert.ok(content.includes("Celebracion"), "info.html debe contener sección Celebración");
+  assert.ok(content.includes("Celebración"), "info.html debe contener sección Celebración");
   assert.ok(content.includes("18.30h"), "info.html debe contener hora de ceremonia");
   assert.ok(content.includes("20.00h"), "info.html debe contener hora de celebración");
   assert.ok(content.includes("data-wedding-field"), "info.html debe contener campos de boda");
