@@ -91,18 +91,18 @@ h2,
   display: block;
 }
 
-/* Logo principal: insignia circular con corazones (Bootstrap Icons) */
+/* Logo principal: corazones (Bootstrap Icons) sin fondo, con el degradado
+   de la banda aplicado al propio glifo */
 .site-logo-icon {
-  display: grid;
-  place-items: center;
-  width: clamp(56px, 8vw, 70px);
-  height: clamp(56px, 8vw, 70px);
-  margin: 0 auto 0.45rem;
-  border-radius: 50%;
+  display: block;
+  width: fit-content;
+  margin: 0 auto 0.35rem;
+  font-size: clamp(2.1rem, 6vw, 2.7rem);
   background: linear-gradient(135deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
-  color: #ffffff;
-  font-size: clamp(1.6rem, 4vw, 2rem);
-  box-shadow: 0 10px 22px rgba(80, 67, 171, 0.32);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 10px rgba(80, 67, 171, 0.28));
 }
 
 .site-logo-icon i {
