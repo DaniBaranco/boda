@@ -558,30 +558,28 @@ h1 {
 .mobile-register-cta {
   position: fixed;
   bottom: 0.9rem;
-  left: 0.9rem;
-  right: 0.9rem;
+  left: 0;
+  right: 0;
   z-index: 20;
   display: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 22px;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 999px;
   text-align: center;
   text-decoration: none;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.95rem 1rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 0.65rem 1.5rem;
   color: #ffffff;
-  background: #d8232f;
-  border: 2px solid #f0606a;
-  /* Sombra dura inferior en rojo oscuro: efecto boton 3D */
-  box-shadow: 0 6px 0 #9e131d, 0 14px 26px rgba(158, 19, 29, 0.35);
+  background: linear-gradient(120deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
+  /* Sombra dura sutil inferior: toque 3D discreto */
+  box-shadow: 0 3px 0 rgba(80, 67, 171, 0.5), 0 10px 22px rgba(80, 67, 171, 0.3);
 }
 
 .mobile-register-cta:active {
   animation: none;
-  transform: translateY(4px);
-  box-shadow: 0 2px 0 #9e131d, 0 8px 14px rgba(158, 19, 29, 0.3);
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(80, 67, 171, 0.5), 0 6px 14px rgba(80, 67, 171, 0.28);
 }
 
 
