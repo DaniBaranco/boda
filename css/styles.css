@@ -67,7 +67,9 @@ h2,
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   backdrop-filter: blur(6px);
-  box-shadow: var(--shadow);
+  /* Sombra dura inferior sutil (mismo lenguaje 3D que los botones)
+     + la sombra difusa de siempre */
+  box-shadow: 0 4px 0 rgba(141, 93, 36, 0.18), var(--shadow);
   border-radius: 24px;
 }
 
