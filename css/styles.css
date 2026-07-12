@@ -36,9 +36,9 @@ body {
 h1,
 h2,
 .brand {
-  /* Tipografia caligrafica para titulos; sin letter-spacing para no romper
-     las ligaduras del trazo manuscrito */
-  font-family: "Dancing Script", "Cormorant Garamond", cursive;
+  /* Tipografia manuscrita para titulos; sin letter-spacing para no romper
+     las ligaduras del trazo */
+  font-family: "Caveat", "Cormorant Garamond", cursive;
   letter-spacing: 0;
 }
 
@@ -1037,17 +1037,15 @@ h1 {
   place-items: center;
   font-size: 1.15rem;
   background: rgba(255, 252, 247, 0.97);
-  border: 2px solid rgba(141, 93, 36, 0.32);
   color: var(--accent-gold-dark);
   box-shadow: 0 4px 12px rgba(67, 44, 18, 0.14);
   z-index: 2;
   transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1), background 300ms ease,
-    color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+    color 300ms ease, box-shadow 300ms ease;
 }
 
 .stop.is-active .stop-node {
   background: linear-gradient(135deg, var(--band-grad-start), var(--band-grad-end));
-  border-color: transparent;
   color: #ffffff;
   box-shadow: 0 8px 18px rgba(80, 67, 171, 0.36);
   transform: scale(1.08);
