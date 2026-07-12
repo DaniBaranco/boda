@@ -939,69 +939,6 @@ h1 {
   margin: 0 auto;
 }
 
-/* --- Cabecera estilo festival: nombre gigante + linea lugar/fecha --- */
-
-.hero-title {
-  margin: 0 0 0.3rem;
-  font-size: clamp(2.7rem, 10vw, 4.4rem);
-  line-height: 1.02;
-  background: linear-gradient(120deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.hero-meta {
-  margin: 0 0 0.9rem;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  font-size: clamp(0.78rem, 2.6vw, 0.98rem);
-  color: var(--accent-gold-dark);
-}
-
-/* --- Marquesina infinita con la info clave --- */
-
-.marquee {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  overflow: hidden;
-  transform: rotate(-1.2deg);
-  background: linear-gradient(120deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
-  box-shadow: 0 3px 0 rgba(80, 67, 171, 0.4), 0 10px 24px rgba(80, 67, 171, 0.3);
-  padding: 0.55rem 0;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-scroll 22s linear infinite;
-}
-
-.marquee-content {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.1rem;
-  padding-right: 1.1rem;
-  white-space: nowrap;
-  color: #ffffff;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.82rem;
-}
-
-.marquee-content i {
-  font-size: 0.65rem;
-  opacity: 0.85;
-}
-
-@keyframes marquee-scroll {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* --- Cuenta atras --- */
 
 .countdown {
@@ -1017,6 +954,8 @@ h1 {
   border-radius: 14px;
   border: 1px solid rgba(141, 93, 36, 0.22);
   background: rgba(255, 252, 247, 0.85);
+  /* Mismo sombreado 3D que los CTAs claros */
+  box-shadow: 0 3px 0 rgba(141, 93, 36, 0.26), 0 8px 18px rgba(67, 44, 18, 0.14);
 }
 
 .countdown-num {
@@ -1401,10 +1340,6 @@ h1 {
 
   .mobile-register-cta,
   [data-party-btn] {
-    animation: none;
-  }
-
-  .marquee-track {
     animation: none;
   }
 
