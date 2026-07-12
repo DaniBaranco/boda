@@ -36,8 +36,10 @@ body {
 h1,
 h2,
 .brand {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  letter-spacing: 0.02em;
+  /* Tipografia caligrafica para titulos; sin letter-spacing para no romper
+     las ligaduras del trazo manuscrito */
+  font-family: "Dancing Script", "Cormorant Garamond", cursive;
+  letter-spacing: 0;
 }
 
 .page-background {
@@ -87,6 +89,29 @@ h2,
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* Logo principal: insignia circular con corazones (Bootstrap Icons) */
+.site-logo-icon {
+  display: grid;
+  place-items: center;
+  width: clamp(56px, 8vw, 70px);
+  height: clamp(56px, 8vw, 70px);
+  margin: 0 auto 0.45rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
+  color: #ffffff;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  box-shadow: 0 10px 22px rgba(80, 67, 171, 0.32);
+}
+
+.site-logo-icon i {
+  display: block;
+  line-height: 1;
+}
+
+.site-logo-icon .bi::before {
+  vertical-align: 0;
 }
 
 .confetti-btn {
@@ -141,6 +166,9 @@ h2,
 main {
   width: min(1080px, calc(100% - 2rem));
   margin: 1rem auto 5rem;
+  /* Ritmo vertical unico entre bloques: todos respiran lo mismo */
+  display: grid;
+  gap: 2.4rem;
 }
 
 .hero {
@@ -375,7 +403,7 @@ h1 {
 .carousel-section {
   --carousel-card-width: 220px;
   --carousel-gap: 0.6rem;
-  margin-top: 1rem;
+  margin-top: 0;
   overflow: hidden;
   padding: 0.6rem;
 }
@@ -453,7 +481,7 @@ h1 {
 }
 
 .faq-section {
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .faq-intro {
@@ -938,64 +966,11 @@ h1 {
   font-size: 1.2rem;
 }
 
-/* --- Migas de pan (navegacion pegajosa con scrollspy) --- */
-
-.route-nav {
-  position: sticky;
-  top: 0.6rem;
-  z-index: 15;
-  display: flex;
-  gap: 0.3rem;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding: 0.4rem;
-  margin: 0.5rem 0 1.2rem;
-  border-radius: 999px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  backdrop-filter: blur(8px);
-  box-shadow: var(--shadow);
-}
-
-.route-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.route-crumb {
-  flex: 1 0 auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  border: 0;
-  border-radius: 999px;
-  padding: 0.45rem 0.75rem;
-  background: transparent;
-  color: var(--text-soft);
-  font-family: "Manrope", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 200ms ease, color 200ms ease, transform 200ms ease;
-}
-
-.route-crumb.is-done {
-  color: var(--band-grad-end);
-}
-
-.route-crumb.is-current {
-  background: linear-gradient(120deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
-  color: #ffffff;
-  box-shadow: 0 6px 16px rgba(80, 67, 171, 0.32);
-  transform: translateY(-1px);
-}
-
 /* --- Hoja de ruta --- */
 
 .roadmap-section {
   width: min(680px, 100%);
-  margin: 0 auto 1.6rem;
+  margin: 0 auto;
 }
 
 .roadmap-title {
@@ -1139,34 +1114,17 @@ h1 {
   margin-top: 0.6rem;
 }
 
-/* --- Inscripcion y pie --- */
-
-.rsvp-card {
-  width: min(680px, 100%);
-  margin: 0 auto 1.2rem;
-  text-align: center;
-}
-
-.rsvp-card .btn {
-  margin-top: 0.4rem;
-}
+/* --- Pie --- */
 
 .site-footer {
   display: flex;
   justify-content: center;
-  margin: 1.6rem 0 3.2rem;
+  margin: 0;
 }
 
 /* --- Ajustes desktop --- */
 
 @media (min-width: 760px) {
-  .route-nav {
-    justify-content: center;
-    width: min(680px, 100%);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .stop-photo img {
     height: 230px;
   }
@@ -1187,7 +1145,7 @@ h1 {
 
 .bus-card {
   width: min(680px, 100%);
-  margin: 0 auto 1.2rem;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -1212,8 +1170,7 @@ h1 {
 
   .stop-node,
   .stop-card,
-  .roadmap-progress,
-  .route-crumb {
+  .roadmap-progress {
     transition: none;
   }
 

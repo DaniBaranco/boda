@@ -11,14 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Dancing+Script:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <!-- Bootstrap (antes de styles.css para que los estilos propios tengan prioridad) -->
     <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./vendor/aos/aos.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=7" />
+    <link rel="stylesheet" href="./css/styles.css?v=8" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
     <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
@@ -35,9 +35,9 @@
 
     <header class="site-header">
       <button id="confettiBtn" class="confetti-btn" title="Lanzar confeti" aria-label="Lanzar confeti">🎉</button>
-      <figure class="site-logo">
-        <img src="./images/labanda.png" alt="Logo de la banda" />
-      </figure>
+      <span class="site-logo-icon" role="img" aria-label="Logo de la boda">
+        <i class="bi bi-hearts" aria-hidden="true"></i>
+      </span>
       <a class="brand" href="./index.html">Almu & Dani</a>
       <p class="site-date" data-wedding-field="date">03-07-2027</p>
     </header>
@@ -77,22 +77,6 @@
           </div>
         </article>
       </section>
-
-      <!-- Migas de pan: navegacion pegajosa que marca el progreso de la ruta -->
-      <nav class="route-nav" aria-label="Paradas del dia de la boda">
-        <button type="button" class="route-crumb" data-crumb="stop-ceremonia">
-          <i class="bi bi-heart-fill" aria-hidden="true"></i><span>Ceremonia</span>
-        </button>
-        <button type="button" class="route-crumb" data-crumb="stop-coctel">
-          <i class="bi bi-cup-straw" aria-hidden="true"></i><span>Coctel</span>
-        </button>
-        <button type="button" class="route-crumb" data-crumb="stop-banquete">
-          <i class="bi bi-cake2" aria-hidden="true"></i><span>Banquete</span>
-        </button>
-        <button type="button" class="route-crumb" data-crumb="stop-fiesta">
-          <i class="bi bi-music-note-beamed" aria-hidden="true"></i><span>Fiesta</span>
-        </button>
-      </nav>
 
       <section id="ruta" class="roadmap-section" aria-label="Hoja de ruta del dia de la boda">
         <h2 class="roadmap-title">Asi sera el dia B</h2>
@@ -197,13 +181,15 @@
         </div>
       </section>
 
-      <section class="glass-panel section-card rsvp-card" aria-label="Inscripcion de invitados" data-aos="fade-up">
-        <h2>Reserva tu sitio en la ruta</h2>
+      <section class="glass-panel section-card bus-card" aria-label="Autobus de ida y vuelta" data-aos="fade-up">
+        <h2>¿Necesitaras autobus de ida y vuelta?</h2>
         <p>
-          El formulario guarda tu confirmacion, plaza de bus y preferencias de menu en un momento.
-          Nos ayuda muchisimo que lo rellenes cuanto antes.
+          Pondremos un autobus para llegar a la celebracion y volver sin preocupaciones.
+          Reserva tu plaza en su formulario especifico: lo publicaremos aqui muy pronto.
         </p>
-        <a data-register-link class="btn btn-band-gradient form-open-cta" href="#">Abrir formulario de inscripcion</a>
+        <a data-bus-link class="btn btn-como-llegar" href="#">
+          <i class="bi bi-bus-front" aria-hidden="true"></i> Inscribirme al autobus
+        </a>
       </section>
 
       <section class="glass-panel section-card faq-section" aria-label="Preguntas frecuentes" data-aos="fade-up">
@@ -251,17 +237,6 @@
             </p>
           </div>
         </details>
-      </section>
-
-      <section class="glass-panel section-card bus-card" aria-label="Autobus de ida y vuelta" data-aos="fade-up">
-        <h2>¿Necesitaras autobus de ida y vuelta?</h2>
-        <p>
-          Pondremos un autobus para llegar a la celebracion y volver sin preocupaciones.
-          Reserva tu plaza en su formulario especifico: lo publicaremos aqui muy pronto.
-        </p>
-        <a data-bus-link class="btn btn-como-llegar" href="#">
-          <i class="bi bi-bus-front" aria-hidden="true"></i> Inscribirme al autobus
-        </a>
       </section>
 
       <footer class="site-footer" aria-label="Enlaces adicionales">

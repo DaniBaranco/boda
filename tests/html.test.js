@@ -15,7 +15,8 @@ test("index.html contiene elementos críticos", () => {
   assert.ok(content.includes("data-wedding-field"), "index.html debe contener campos de boda");
   assert.ok(content.includes("data-register-link"), "index.html debe contener enlaces de registro");
   assert.ok(content.includes("carousel-slide"), "index.html debe contener carousel");
-  assert.ok(content.includes('src="./images/labanda.png"'), "index.html debe referenciar logo");
+  assert.ok(content.includes('class="site-logo-icon"'), "index.html debe contener el logo principal");
+  assert.ok(content.includes("bi-hearts"), "index.html debe usar el icono de corazones como logo");
 });
 
 test("info.html contiene elementos críticos", () => {

@@ -53,7 +53,6 @@ export function initCountdown() {
  * Hoja de ruta del día B:
  * - La línea de progreso se rellena según avanza el scroll.
  * - Cada parada se activa (miga de pan "pisada") al entrar en pantalla.
- * - Las migas de pan superiores hacen scrollspy y permiten saltar a cada parada.
  */
 export function initRoadmap() {
   const roadmap = document.querySelector("[data-roadmap]");
@@ -61,7 +60,6 @@ export function initRoadmap() {
 
   const progressLine = roadmap.querySelector("[data-roadmap-progress]");
   const stops = [...roadmap.querySelectorAll("[data-stop]")];
-  const crumbs = [...document.querySelectorAll("[data-crumb]")];
 
   // Activa el modo animado solo cuando el JS esta funcionando: sin JS, las
   // tarjetas quedan siempre visibles.
@@ -77,16 +75,9 @@ export function initRoadmap() {
       progressLine.style.height = `${filled}px`;
     }
 
-    let currentIndex = -1;
-    stops.forEach((stop, index) => {
+    stops.forEach((stop) => {
       const reached = stop.getBoundingClientRect().top < viewportAnchor;
       stop.classList.toggle("is-active", reached);
-      if (reached) currentIndex = index;
-    });
-
-    crumbs.forEach((crumb, index) => {
-      crumb.classList.toggle("is-current", index === currentIndex);
-      crumb.classList.toggle("is-done", index < currentIndex);
     });
   };
 
@@ -103,14 +94,6 @@ export function initRoadmap() {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
   activate();
-
-  // Las migas de pan navegan a su parada.
-  crumbs.forEach((crumb) => {
-    crumb.addEventListener("click", () => {
-      const stop = document.getElementById(crumb.getAttribute("data-crumb"));
-      stop?.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-  });
 
   // La última parada permite lanzar confeti (usa la librería global si está cargada).
   const partyBtn = roadmap.querySelector("[data-party-btn]");
