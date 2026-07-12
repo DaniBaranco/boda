@@ -1157,6 +1157,45 @@ h1 {
   animation: soft-bob 2.4s ease-in-out infinite;
 }
 
+/* --- Corazones flotando de fondo --- */
+
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.float-heart {
+  position: absolute;
+  bottom: -8vh;
+  left: var(--x);
+  font-size: calc(1.05rem * var(--s));
+  color: var(--band-grad-end);
+  opacity: 0;
+  animation: heart-rise var(--t) linear infinite;
+  animation-delay: var(--d);
+}
+
+@keyframes heart-rise {
+  0% {
+    transform: translateY(0) rotate(-10deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.16;
+  }
+  55% {
+    transform: translateY(-60vh) rotate(6deg);
+    opacity: 0.12;
+  }
+  100% {
+    transform: translateY(-118vh) rotate(-4deg);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .countdown-num.tick {
     animation: none;
@@ -1164,6 +1203,10 @@ h1 {
 
   .mobile-register-cta {
     animation: none;
+  }
+
+  .float-heart {
+    display: none;
   }
 
   .stop-node,

@@ -60,10 +60,24 @@ export function initRoadmap() {
 
   const progressLine = roadmap.querySelector("[data-roadmap-progress]");
   const stops = [...roadmap.querySelectorAll("[data-stop]")];
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Activa el modo animado solo cuando el JS esta funcionando: sin JS, las
   // tarjetas quedan siempre visibles.
   roadmap.classList.add("js-anim");
+
+  // Celebracion automatica (una sola vez) al llegar a la ultima parada.
+  let partyCelebrated = false;
+
+  const launchConfetti = (particleCount) => {
+    if (typeof window.confetti !== "function") return;
+    window.confetti({
+      particleCount,
+      spread: 80,
+      origin: { y: 0.7 },
+      colors: ["#d9b8ff", "#b78bff", "#8d62ff", "#b47b39", "#fff7ea"],
+    });
+  };
 
   const activate = () => {
     const viewportAnchor = window.innerHeight * 0.62;
@@ -75,9 +89,14 @@ export function initRoadmap() {
       progressLine.style.height = `${filled}px`;
     }
 
-    stops.forEach((stop) => {
+    stops.forEach((stop, index) => {
       const reached = stop.getBoundingClientRect().top < viewportAnchor;
       stop.classList.toggle("is-active", reached);
+
+      if (reached && index === stops.length - 1 && !partyCelebrated) {
+        partyCelebrated = true;
+        if (!prefersReducedMotion) launchConfetti(90);
+      }
     });
   };
 
@@ -97,13 +116,5 @@ export function initRoadmap() {
 
   // La última parada permite lanzar confeti (usa la librería global si está cargada).
   const partyBtn = roadmap.querySelector("[data-party-btn]");
-  partyBtn?.addEventListener("click", () => {
-    if (typeof window.confetti !== "function") return;
-    window.confetti({
-      particleCount: 140,
-      spread: 80,
-      origin: { y: 0.7 },
-      colors: ["#d9b8ff", "#b78bff", "#8d62ff", "#b47b39", "#fff7ea"],
-    });
-  });
+  partyBtn?.addEventListener("click", () => launchConfetti(140));
 }
