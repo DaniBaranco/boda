@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="App de inscripcion para la boda de Almu y Dani. Informacion del evento y acceso directo al formulario de invitados."
+      content="App de inscripcion para la boda de Almu y Dani. Hoja de ruta del dia, informacion del evento y acceso directo al formulario de invitados."
     />
     <title>Almu & Dani | Boda 03-07-2027</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./vendor/aos/aos.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=5" />
+    <link rel="stylesheet" href="./css/styles.css?v=6" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
     <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
@@ -29,7 +29,6 @@
     <script src="./vendor/gsap/gsap.min.js" defer></script>
     <script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
     -->
-
   </head>
   <body>
     <div class="page-background" aria-hidden="true"></div>
@@ -44,67 +43,155 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero hero--roadmap">
         <article class="hero-card glass-panel">
           <div class="hero-content">
             <p class="eyebrow">¡Nos casamos!</p>
             <p class="hero-subtitle">
-              Te invitamos a celebrar con nosotros un dia inolvidable.
+              Te invitamos a celebrar con nosotros un dia inolvidable. Esta es la ruta del dia B:
+              siguela paso a paso y no te pierdas nada.
             </p>
 
-            <dl class="event-grid">
-              <div>
-                <figure class="event-logo">
-                  <img src="./images/finca.png" alt="Logo Finca" />
-                </figure>
-                <dt>Finca</dt>
-                <dd data-wedding-field="venue">Finca Casa de Oficios</dd>
-                <figure class="event-mobile-photo">
-                  <img src="./images/entrada_finca.jpeg" alt="Entrada de la finca" />
-                </figure>
+            <div class="countdown" data-countdown aria-label="Cuenta atras para la boda">
+              <div class="countdown-cell">
+                <span class="countdown-num" data-countdown-unit="days">--</span>
+                <span class="countdown-label">dias</span>
               </div>
-              <div>
-                <figure class="event-logo">
-                  <img src="./images/church.png" alt="Logo Iglesia" />
-                </figure>
-                <dt>Ceremonia</dt>
-                <dd data-wedding-field="ceremony">Iglesia de Santa Maria Magdalena</dd>
-                <figure class="event-mobile-photo">
-                  <img src="./images/iglesia-torrelaguna.png" alt="Iglesia de Santa Maria Magdalena en Torrelaguna" />
-                </figure>
+              <div class="countdown-cell">
+                <span class="countdown-num" data-countdown-unit="hours">--</span>
+                <span class="countdown-label">horas</span>
               </div>
-              <div>
-                <figure class="event-logo">
-                  <img src="./images/location.png" alt="Logo Ubicación" />
-                </figure>
-                <dt>Ubicacion</dt>
-                <dd data-wedding-field="location">Torremocha del Jarama</dd>
-                <div class="event-mobile-map" aria-label="Mapa de la Iglesia de Santa Maria Magdalena en Torrelaguna">
-                  <iframe
-                    title="Mapa Iglesia de Santa Maria Magdalena, Torrelaguna"
-                    src="https://www.google.com/maps?q=Iglesia%20de%20Santa%20Maria%20Magdalena%20Torrelaguna%20Madrid&output=embed"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
+              <div class="countdown-cell">
+                <span class="countdown-num" data-countdown-unit="minutes">--</span>
+                <span class="countdown-label">min</span>
               </div>
-            </dl>
+              <div class="countdown-cell">
+                <span class="countdown-num" data-countdown-unit="seconds">--</span>
+                <span class="countdown-label">seg</span>
+              </div>
+            </div>
 
             <div class="hero-actions">
               <a data-register-link class="btn btn-band-gradient" href="#">Confirmar asistencia</a>
-              <a class="btn btn-gradient-border" href="./info.html">Ver detalles</a>
+              <a class="btn btn-gradient-border" href="#ruta">Ver la ruta del dia</a>
             </div>
           </div>
         </article>
       </section>
 
-      <section class="home-note glass-panel section-card" aria-label="Mensaje de bienvenida" data-aos="fade-up">
-        <h2>Un fin de semana para recordar</h2>
-        <p>
-          Nos hace mucha ilusion compartir este momento con vosotros. Queremos una celebracion cercana,
-          divertida y llena de detalles bonitos, asi que en esta app tenéis toda la informacion clave y el acceso
-          directo a la inscripcion.
-        </p>
+      <!-- Migas de pan: navegacion pegajosa que marca el progreso de la ruta -->
+      <nav class="route-nav" aria-label="Paradas del dia de la boda">
+        <button type="button" class="route-crumb" data-crumb="stop-ceremonia">
+          <i class="bi bi-heart-fill" aria-hidden="true"></i><span>Ceremonia</span>
+        </button>
+        <button type="button" class="route-crumb" data-crumb="stop-bus">
+          <i class="bi bi-bus-front" aria-hidden="true"></i><span>Bus</span>
+        </button>
+        <button type="button" class="route-crumb" data-crumb="stop-coctel">
+          <i class="bi bi-cup-straw" aria-hidden="true"></i><span>Coctel</span>
+        </button>
+        <button type="button" class="route-crumb" data-crumb="stop-banquete">
+          <i class="bi bi-cake2" aria-hidden="true"></i><span>Banquete</span>
+        </button>
+        <button type="button" class="route-crumb" data-crumb="stop-fiesta">
+          <i class="bi bi-music-note-beamed" aria-hidden="true"></i><span>Fiesta</span>
+        </button>
+      </nav>
+
+      <section id="ruta" class="roadmap-section" aria-label="Hoja de ruta del dia de la boda">
+        <h2 class="roadmap-title">Asi sera el dia B</h2>
+        <p class="roadmap-intro">Una ruta con cinco paradas. Cada miga de pan que pises te acerca a la fiesta.</p>
+
+        <ol class="roadmap" data-roadmap>
+          <span class="roadmap-progress" data-roadmap-progress aria-hidden="true"></span>
+
+          <li class="stop" id="stop-ceremonia" data-stop>
+            <span class="stop-node"><i class="bi bi-heart-fill" aria-hidden="true"></i></span>
+            <article class="stop-card glass-panel">
+              <span class="stop-time">18:30</span>
+              <h3>Ceremonia</h3>
+              <p class="stop-place">
+                <strong data-wedding-field="ceremony">Iglesia de Santa Maria Magdalena</strong><br />
+                <span data-wedding-field="ceremonyTown">Torrelaguna (Madrid)</span>
+              </p>
+              <p>El momento mas importante del dia. Llega con tiempo para coger buen sitio.</p>
+              <figure class="stop-photo">
+                <img src="./images/iglesia-torrelaguna.png" alt="Iglesia de Santa Maria Magdalena en Torrelaguna" loading="lazy" />
+              </figure>
+              <a
+                class="btn btn-como-llegar"
+                href="https://www.google.com/maps/dir/?api=1&destination=Iglesia+de+Santa+Maria+Magdalena+Torrelaguna+Madrid"
+                target="_blank"
+                rel="noreferrer noopener"
+              ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Como llegar a la iglesia</a>
+            </article>
+          </li>
+
+          <li class="stop" id="stop-bus" data-stop>
+            <span class="stop-node"><i class="bi bi-bus-front" aria-hidden="true"></i></span>
+            <article class="stop-card glass-panel">
+              <span class="stop-time">Tras la ceremonia</span>
+              <h3>Traslado en bus</h3>
+              <p>
+                Habra autobus de ida y vuelta para todos los invitados. Ajustaremos las plazas con las
+                respuestas del formulario, asi que no olvides confirmar asistencia.
+              </p>
+              <a data-register-link class="btn btn-como-llegar" href="#"><i class="bi bi-check2-circle" aria-hidden="true"></i> Reservar mi plaza</a>
+            </article>
+          </li>
+
+          <li class="stop" id="stop-coctel" data-stop>
+            <span class="stop-node"><i class="bi bi-cup-straw" aria-hidden="true"></i></span>
+            <article class="stop-card glass-panel">
+              <span class="stop-time">20:00</span>
+              <h3>Recepcion y coctel</h3>
+              <p class="stop-place">
+                <strong data-wedding-field="venue">Finca Casa de Oficios</strong><br />
+                <span data-wedding-field="location">Torremocha del Jarama (Madrid)</span>
+              </p>
+              <p>Brindis de bienvenida en los jardines de la finca. Empieza lo bueno.</p>
+              <figure class="stop-photo">
+                <img src="./images/entrada_finca.jpeg" alt="Entrada de la finca" loading="lazy" />
+              </figure>
+              <a
+                class="btn btn-como-llegar"
+                href="https://www.google.com/maps/dir/?api=1&destination=Finca+Casa+de+Oficios+Torremocha+del+Jarama+Madrid"
+                target="_blank"
+                rel="noreferrer noopener"
+              ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Como llegar a la finca</a>
+            </article>
+          </li>
+
+          <li class="stop" id="stop-banquete" data-stop>
+            <span class="stop-node"><i class="bi bi-cake2" aria-hidden="true"></i></span>
+            <article class="stop-card glass-panel">
+              <span class="stop-time">A continuacion</span>
+              <h3>Banquete</h3>
+              <p>
+                Cena para recuperar fuerzas. Habra opciones vegetarianas, veganas y menu infantil:
+                indicalo en el formulario y lo dejamos todo confirmado con el catering.
+              </p>
+              <figure class="stop-photo">
+                <img src="./images/mesas_finca.jpg" alt="Mesas preparadas para invitados" loading="lazy" />
+              </figure>
+            </article>
+          </li>
+
+          <li class="stop" id="stop-fiesta" data-stop>
+            <span class="stop-node"><i class="bi bi-music-note-beamed" aria-hidden="true"></i></span>
+            <article class="stop-card glass-panel">
+              <span class="stop-time">Hasta que el cuerpo aguante</span>
+              <h3>¡Fiesta!</h3>
+              <p>
+                Baile, musica y sorpresas para cerrar el dia por todo lo alto. El bus de vuelta esperara
+                a los valientes.
+              </p>
+              <button type="button" class="btn btn-band-gradient" data-party-btn>
+                <i class="bi bi-stars" aria-hidden="true"></i> ¡Quiero fiesta ya!
+              </button>
+            </article>
+          </li>
+        </ol>
       </section>
 
       <section class="carousel-section glass-panel" aria-label="Ambiente de la celebracion" data-aos="fade-up">
@@ -126,6 +213,69 @@
           <figure class="carousel-slide" aria-hidden="true"><img src="./images/entrada_finca.jpeg" alt="" /></figure>
         </div>
       </section>
+
+      <section class="glass-panel section-card rsvp-card" aria-label="Inscripcion de invitados" data-aos="fade-up">
+        <h2>Reserva tu sitio en la ruta</h2>
+        <p>
+          El formulario guarda tu confirmacion, plaza de bus y preferencias de menu en un momento.
+          Nos ayuda muchisimo que lo rellenes cuanto antes.
+        </p>
+        <a data-register-link class="btn btn-band-gradient form-open-cta" href="#">Abrir formulario de inscripcion</a>
+      </section>
+
+      <section class="glass-panel section-card faq-section" aria-label="Preguntas frecuentes" data-aos="fade-up">
+        <h2>Preguntas frecuentes</h2>
+        <p class="faq-intro">
+          Si tienes dudas sobre transporte, menu o logistica, aqui tienes respuestas rapidas.
+        </p>
+
+        <details class="faq-item" open>
+          <summary>Habra servicio de autobus para ir y volver?</summary>
+          <div class="faq-content">
+            <p>
+              Si. Habra servicio de ida y vuelta y ajustaremos plazas segun las respuestas del formulario.
+              Cuando cerremos horarios exactos, los publicaremos aqui para que podais organizaros facilmente.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Como comunicamos intolerancias o alergias alimentarias?</summary>
+          <div class="faq-content">
+            <p>
+              En el formulario de inscripcion tienes un campo especifico para alergias, intolerancias y preferencias.
+              Revisaremos cada caso con el catering para que todo este bien preparado el dia de la boda.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Hay opciones vegetarianas, veganas o menu infantil?</summary>
+          <div class="faq-content">
+            <p>
+              Si. Contaremos con opciones vegetarianas, veganas y menu infantil.
+              Solo tienes que indicarlo en la inscripcion para dejar cada menu confirmado con antelacion.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Hasta cuando puedo confirmar asistencia?</summary>
+          <div class="faq-content">
+            <p>
+              Te recomendamos confirmar cuanto antes para ayudarnos con la organizacion.
+              La fecha limite oficial de RSVP se comunicara por el mismo canal de invitacion y se reflejara en esta pagina.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <footer class="site-footer" aria-label="Enlaces adicionales">
+        <a class="btn btn-gradient-border" href="./info.html">
+          <i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i>
+          Mas detalles e invitacion en PDF
+        </a>
+      </footer>
     </main>
 
     <a data-register-link class="mobile-register-cta" href="#">Inscripcion</a>
@@ -133,7 +283,10 @@
     <script type="module" src="./js/app.js?v=3"></script>
     <script type="module">
       import { initConfetti } from './js/confetti.js?v=1';
+      import { initCountdown, initRoadmap } from './js/roadmap.js?v=1';
       initConfetti();
+      initCountdown();
+      initRoadmap();
       AOS.init({ duration: 700, once: true, offset: 80 });
     </script>
   </body>

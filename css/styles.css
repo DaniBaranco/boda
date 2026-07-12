@@ -876,3 +876,316 @@ h1 {
 .btn-band-gradient {
   --bs-btn-hover-color: #ffffff;
 }
+
+/* ============================================================
+   Rediseño mobile-first: hoja de ruta del dia B
+   ============================================================ */
+
+.hero--roadmap {
+  min-height: auto;
+}
+
+/* --- Cuenta atras --- */
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin: 1.1rem 0 1.3rem;
+}
+
+.countdown-cell {
+  padding: 0.55rem 0.2rem 0.5rem;
+  text-align: center;
+  border-radius: 14px;
+  border: 1px solid rgba(141, 93, 36, 0.22);
+  background: rgba(255, 252, 247, 0.85);
+}
+
+.countdown-num {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.5rem, 6vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.countdown-num.tick {
+  animation: countdown-pop 0.5s ease;
+}
+
+@keyframes countdown-pop {
+  0% {
+    transform: scale(1.2);
+    color: var(--band-grad-end);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.countdown-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-soft);
+  font-weight: 700;
+}
+
+.countdown-done {
+  margin: 1rem 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* --- Migas de pan (navegacion pegajosa con scrollspy) --- */
+
+.route-nav {
+  position: sticky;
+  top: 0.6rem;
+  z-index: 15;
+  display: flex;
+  gap: 0.3rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0.4rem;
+  margin: 0.5rem 0 1.2rem;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+}
+
+.route-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.route-crumb {
+  flex: 1 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  background: transparent;
+  color: var(--text-soft);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+}
+
+.route-crumb.is-done {
+  color: var(--band-grad-end);
+}
+
+.route-crumb.is-current {
+  background: linear-gradient(120deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(80, 67, 171, 0.32);
+  transform: translateY(-1px);
+}
+
+/* --- Hoja de ruta --- */
+
+.roadmap-section {
+  width: min(680px, 100%);
+  margin: 0 auto 1.6rem;
+}
+
+.roadmap-title {
+  margin: 0.4rem 0 0.3rem;
+  text-align: center;
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+}
+
+.roadmap-intro {
+  margin: 0 0 1.6rem;
+  text-align: center;
+  color: var(--text-soft);
+}
+
+.roadmap {
+  list-style: none;
+  margin: 0;
+  padding: 0.2rem 0 0.2rem 3.2rem;
+  position: relative;
+}
+
+/* Rastro de migas: linea punteada que une las paradas */
+.roadmap::before {
+  content: "";
+  position: absolute;
+  left: calc(1.35rem - 1.5px);
+  top: 0.8rem;
+  bottom: 0.8rem;
+  width: 0;
+  border-left: 3px dotted rgba(141, 93, 36, 0.4);
+}
+
+/* Relleno de progreso (la altura la fija js/roadmap.js al hacer scroll) */
+.roadmap-progress {
+  position: absolute;
+  left: calc(1.35rem - 1.5px);
+  top: 0.8rem;
+  width: 3px;
+  height: 0;
+  max-height: calc(100% - 1.6rem);
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
+  transition: height 250ms ease-out;
+  z-index: 1;
+}
+
+.stop {
+  position: relative;
+  margin: 0 0 1.5rem;
+}
+
+.stop:last-child {
+  margin-bottom: 0;
+}
+
+.stop-node {
+  position: absolute;
+  left: calc(1.35rem - 3.2rem - 22px);
+  top: 0.3rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  background: rgba(255, 252, 247, 0.97);
+  border: 2px solid rgba(141, 93, 36, 0.32);
+  color: var(--accent-gold-dark);
+  box-shadow: 0 4px 12px rgba(67, 44, 18, 0.14);
+  z-index: 2;
+  transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1), background 300ms ease,
+    color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.stop.is-active .stop-node {
+  background: linear-gradient(135deg, var(--band-grad-start), var(--band-grad-end));
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(80, 67, 171, 0.36);
+  transform: scale(1.08);
+}
+
+.stop-card {
+  padding: 1.1rem 1.15rem 1.25rem;
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+/* Solo se ocultan las tarjetas cuando el JS de la ruta esta activo */
+.roadmap.js-anim .stop:not(.is-active) .stop-card {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.roadmap.js-anim .stop:not(.is-active) .stop-node {
+  transform: scale(0.72);
+}
+
+.stop-time {
+  display: inline-block;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(180, 123, 57, 0.14);
+  color: var(--accent-gold-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.55rem;
+}
+
+.stop-card h3 {
+  margin: 0.1rem 0 0.4rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.65rem;
+}
+
+.stop-card p {
+  margin: 0.3rem 0;
+}
+
+.stop-place {
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+.stop-photo {
+  margin: 0.75rem 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(141, 93, 36, 0.2);
+}
+
+.stop-photo img {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  display: block;
+}
+
+.stop-card .btn {
+  margin-top: 0.6rem;
+}
+
+/* --- Inscripcion y pie --- */
+
+.rsvp-card {
+  width: min(680px, 100%);
+  margin: 0 auto 1.2rem;
+  text-align: center;
+}
+
+.rsvp-card .btn {
+  margin-top: 0.4rem;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: center;
+  margin: 1.6rem 0 3.2rem;
+}
+
+/* --- Ajustes desktop --- */
+
+@media (min-width: 760px) {
+  .route-nav {
+    justify-content: center;
+    width: min(680px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .stop-photo img {
+    height: 230px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown-num.tick {
+    animation: none;
+  }
+
+  .stop-node,
+  .stop-card,
+  .roadmap-progress,
+  .route-crumb {
+    transition: none;
+  }
+
+  .roadmap.js-anim .stop:not(.is-active) .stop-card {
+    opacity: 1;
+    transform: none;
+  }
+}
