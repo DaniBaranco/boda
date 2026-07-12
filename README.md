@@ -37,24 +37,29 @@ npm start          # sirve la web en http://localhost:8000 (requiere Python)
 
 ## Entornos
 
-- **Produccion**: rama `main`. Es lo que GitHub Pages publica en la web real. Solo llegan cambios probados.
-- **Desarrollo**: rama `dev`. Cajon de sastre para experimentar y desarrollar propuestas nuevas sin afectar a produccion.
+La web se publica en **Vercel**.
 
-Flujo de trabajo:
+- **Produccion**: rama `main`, desplegada en la URL real de Vercel. Solo llegan cambios probados.
+- **Desarrollo**: rama `dev`. Cajon de sastre para experimentar sin afectar a produccion. Cada despliegue de prueba en Vercel genera una *Preview URL* propia.
+
+Flujo de trabajo con Vercel CLI:
 
 ```bash
 git switch dev         # trabajar y experimentar aqui
 npm start              # probar en local (http://localhost:8000)
+vercel                 # (opcional) despliegue de prueba con Preview URL propia
 
 # cuando una propuesta este lista para publicar:
 git switch main
 git merge dev
-git push               # publica en GitHub Pages
+vercel --prod          # publica en produccion
 
 # si un experimento no convence, se descarta sin mas:
 git switch dev
 git reset --hard main  # dev vuelve a estar limpia como produccion
 ```
+
+Requisitos una sola vez: `npm install -g vercel`, `vercel login` y `vercel link` (vincula esta carpeta con el proyecto existente en Vercel).
 
 ## Configuracion
 

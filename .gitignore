@@ -1,3 +1,6 @@
+# Vercel (config local del proyecto vinculado)
+.vercel/
+
 # Entornos y dependencias
 .venv/
 venv/
