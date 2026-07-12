@@ -1,0 +1,11 @@
+# Entornos y dependencias
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+*.swp

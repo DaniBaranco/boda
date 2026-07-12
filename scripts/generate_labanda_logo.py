@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from PIL import Image, ImageDraw
 
 size = (512, 256)
@@ -31,4 +33,5 @@ for offset in [(10, -8), (0, -12), (-6, -4)]:
     d.arc([left_ring[0][0]+offset[0], left_ring[0][1]+offset[1], left_ring[1][0]+offset[0], left_ring[1][1]+offset[1]], start=20, end=60, fill=highlight_color, width=12)
     d.arc([right_ring[0][0]+offset[0], right_ring[0][1]+offset[1], right_ring[1][0]+offset[0], right_ring[1][1]+offset[1]], start=20, end=60, fill=highlight_color, width=12)
 
-img.save('images/labanda.png')
+output_path = Path(__file__).resolve().parent.parent / 'images' / 'labanda.png'
+img.save(output_path)

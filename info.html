@@ -14,12 +14,18 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/styles.css?v=4" />
+    <!-- Bootstrap (antes de styles.css para que los estilos propios tengan prioridad) -->
+    <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./vendor/aos/aos.css" />
+    <link rel="stylesheet" href="./css/styles.css?v=5" />
     <!-- PDF generation libs (UMD globals) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
+    <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+    <script src="./vendor/aos/aos.js" defer></script>
   </head>
   <body>
     <div class="page-background page-background--info" aria-hidden="true"></div>
@@ -50,7 +56,7 @@
       </section>
 
       <section class="timeline-grid">
-        <article class="glass-panel section-card">
+        <article class="glass-panel section-card" data-aos="fade-up">
           <h2>Ceremonia</h2>
           <p>
             <strong>Lugar:</strong> <span data-wedding-field="ceremony">Iglesia St. Maria Magdalena</span>
@@ -74,7 +80,7 @@
           </div>
         </article>
 
-        <article class="glass-panel section-card">
+        <article class="glass-panel section-card" data-aos="fade-up" data-aos-delay="100">
           <h2>Celebracion</h2>
           <p><strong>Finca:</strong> <span data-wedding-field="venue">Finca Casa de Oficios</span></p>
           <p>
@@ -96,7 +102,7 @@
           </div>
         </article>
 
-        <article class="glass-panel section-card section-card--cta">
+        <article class="glass-panel section-card section-card--cta" data-aos="fade-up" data-aos-delay="200">
           <h2>Inscripcion de invitados</h2>
           <p>
             El formulario de Google Forms guarda respuestas automaticamente en Google Sheets,
@@ -106,7 +112,7 @@
         </article>
       </section>
 
-      <section class="glass-panel section-card faq-section" aria-label="Preguntas frecuentes">
+      <section class="glass-panel section-card faq-section" aria-label="Preguntas frecuentes" data-aos="fade-up">
         <h2>Preguntas frecuentes</h2>
         <p class="faq-intro">
           Si tienes dudas sobre transporte, menu o logistica, aqui tienes respuestas rapidas.
@@ -192,6 +198,7 @@
       import { initConfetti } from './js/confetti.js?v=1';
       initInvitation();
       initConfetti();
+      AOS.init({ duration: 700, once: true, offset: 80 });
     </script>
   </body>
 </html>

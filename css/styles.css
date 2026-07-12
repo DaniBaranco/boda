@@ -865,3 +865,14 @@ h1 {
     animation: none;
   }
 }
+
+/* Compatibilidad con Bootstrap: su regla .btn:hover lee estas variables;
+   sin definirlas, el texto de los botones perderia su color al pasar el raton */
+.btn {
+  --bs-btn-hover-color: var(--text-main);
+  --bs-btn-hover-bg: transparent;
+}
+
+.btn-band-gradient {
+  --bs-btn-hover-color: #ffffff;
+}

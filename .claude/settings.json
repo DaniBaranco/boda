@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/check-app.js",
+            "timeout": 120,
+            "statusMessage": "Revisando la app (tests + validacion)..."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -14,9 +14,22 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/styles.css?v=4" />
+    <!-- Bootstrap (antes de styles.css para que los estilos propios tengan prioridad) -->
+    <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./vendor/aos/aos.css" />
+    <link rel="stylesheet" href="./css/styles.css?v=5" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
+    <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+    <script src="./vendor/aos/aos.js" defer></script>
+    <!-- Disponibles en vendor/ (descomentar cuando se usen):
+    <link rel="stylesheet" href="./vendor/swiper/swiper-bundle.min.css" />
+    <script src="./vendor/swiper/swiper-bundle.min.js" defer></script>
+    <script src="./vendor/gsap/gsap.min.js" defer></script>
+    <script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
+    -->
+
   </head>
   <body>
     <div class="page-background" aria-hidden="true"></div>
@@ -85,7 +98,7 @@
         </article>
       </section>
 
-      <section class="home-note glass-panel section-card" aria-label="Mensaje de bienvenida">
+      <section class="home-note glass-panel section-card" aria-label="Mensaje de bienvenida" data-aos="fade-up">
         <h2>Un fin de semana para recordar</h2>
         <p>
           Nos hace mucha ilusion compartir este momento con vosotros. Queremos una celebracion cercana,
@@ -94,7 +107,7 @@
         </p>
       </section>
 
-      <section class="carousel-section glass-panel" aria-label="Ambiente de la celebracion">
+      <section class="carousel-section glass-panel" aria-label="Ambiente de la celebracion" data-aos="fade-up">
         <div class="carousel-track">
           <figure class="carousel-slide"><img src="./images/entrada_finca.jpeg" alt="Entrada de la finca" /></figure>
           <figure class="carousel-slide"><img src="./images/mesas_finca.jpg" alt="Mesas preparadas para invitados" /></figure>
@@ -117,8 +130,11 @@
 
     <a data-register-link class="mobile-register-cta" href="#">Inscripcion</a>
 
-    <script type="module" src="./js/app.js?v=3"></script>    <script type="module">
+    <script type="module" src="./js/app.js?v=3"></script>
+    <script type="module">
       import { initConfetti } from './js/confetti.js?v=1';
       initConfetti();
-    </script>  </body>
+      AOS.init({ duration: 700, once: true, offset: 80 });
+    </script>
+  </body>
 </html>
