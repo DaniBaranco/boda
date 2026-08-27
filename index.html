@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./vendor/aos/aos.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=20" />
+    <link rel="stylesheet" href="./css/styles.css?v=22" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
     <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
@@ -45,7 +45,24 @@
     </div>
 
     <header class="site-header">
-      <button id="confettiBtn" class="confetti-btn" title="Lanzar confeti" aria-label="Lanzar confeti">🎉</button>
+      <button
+        id="confettiBtn"
+        class="confetti-btn"
+        type="button"
+        title="Ver teléfonos de los novios"
+        aria-label="Ver teléfonos de los novios"
+        aria-expanded="false"
+        aria-controls="couplePhonePanel"
+      >
+        <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+      </button>
+      <div id="couplePhonePanel" class="phone-panel" aria-hidden="true">
+        <p class="phone-panel-eyebrow">Llámanos cuando quieras</p>
+        <p class="phone-panel-name">Almu</p>
+        <a href="https://wa.me/34600123456" target="_blank" rel="noreferrer noopener">+34 600 123 456</a>
+        <p class="phone-panel-name">Dani</p>
+        <a href="https://wa.me/34600654321" target="_blank" rel="noreferrer noopener">+34 600 654 321</a>
+      </div>
       <span class="site-logo-icon" role="img" aria-label="Logo de la boda">
         <i class="bi bi-hearts" aria-hidden="true"></i>
       </span>
@@ -195,12 +212,50 @@
       <section class="glass-panel section-card bus-card" aria-label="Autobús de ida y vuelta" data-aos="fade-up">
         <h2>¿Necesitarás autobús de ida y vuelta?</h2>
         <p>
-          Pondremos un autobús para llegar a la celebración y volver sin preocupaciones.
-          Reserva tu plaza en su formulario específico: lo publicaremos aquí muy pronto.
+          Pondremos un autobús para facilitar todos los traslados del día: primero desde el punto de
+          recogida hasta la ceremonia y, después, de la ceremonia a la finca. Además, habrá regreso a
+          Madrid en dos horarios de salida.
         </p>
-        <a data-bus-link class="btn btn-como-llegar" href="#">
-          <i class="bi bi-bus-front" aria-hidden="true"></i> Inscribirme al autobús
-        </a>
+        <div class="bus-plan" aria-label="Horarios del autobús">
+          <article class="bus-leg">
+            <h3>Ida</h3>
+            <div class="bus-leg-content bus-leg-content--pickup">
+              <span class="bus-time-pill">17:00 h</span>
+              <p class="bus-pickup-detail">
+                <span>
+                  <strong>Punto de recogida</strong><br />
+                  Junto al Metro Sainz de Baranda (Doctor Esquerdo, 109)
+                </span>
+              </p>
+              <a
+                class="btn btn-como-llegar btn-bus-uniform bus-pickup-btn"
+                href="https://www.google.com/maps/dir/?api=1&destination=Estacion+de+Metro+Sainz+de+Baranda+Madrid"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                <span class="bus-pickup-main">Ir al punto de recogida</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="bus-leg">
+            <h3>Vuelta</h3>
+            <div class="bus-leg-content bus-leg-content--times">
+              <span class="bus-time-pill">03:00 h</span>
+              <span class="bus-time-pill">05:00 h</span>
+            </div>
+            <p class="bus-return-detail">
+              El autobús tendrá dos horas de salida desde la finca y hará parada en el mismo punto de recogida de la ida.
+            </p>
+          </article>
+        </div>
+
+        <div class="bus-actions">
+          <a data-bus-link class="btn btn-band-gradient btn-bus-uniform" href="#">
+            <i class="bi bi-bus-front" aria-hidden="true"></i> Inscribirme al autobús
+          </a>
+        </div>
       </section>
 
       <section class="glass-panel section-card faq-section" aria-label="Preguntas frecuentes" data-aos="fade-up">
@@ -250,12 +305,50 @@
         </details>
       </section>
 
-      <footer class="site-footer" aria-label="Enlaces adicionales">
-        <a class="btn btn-gradient-border" href="./info.html">
-          <i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i>
-          Más detalles e invitación en PDF
-        </a>
-      </footer>
+      <section class="preboda-section" aria-label="Preboda" data-aos="fade-up">
+        <div class="preboda-inner">
+          <div class="preboda-text">
+            <p class="preboda-eyebrow"><i class="bi bi-stars" aria-hidden="true"></i> Antes de la gran fiesta</p>
+            <h2>¿Te apuntas a la preboda?</h2>
+            <p class="preboda-desc">
+              El día antes de la boda nos gustaría reunirnos con los que quieran venir a tomar algo
+              juntos, calentar motores y disfrutar de una tarde tranquila en buena compañía.
+              ¡La excusa perfecta para llegar al gran día ya en modo celebración!
+            </p>
+            <div class="preboda-details">
+              <div class="preboda-detail">
+                <i class="bi bi-calendar-heart-fill" aria-hidden="true"></i>
+                <span>02 de julio de 2027</span>
+              </div>
+              <div class="preboda-detail">
+                <i class="bi bi-clock-fill" aria-hidden="true"></i>
+                <span class="preboda-time">20:00 – 00:00 h</span>
+              </div>
+              <div class="preboda-detail">
+                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                <span>
+                  <strong>The Irish Rover</strong><br />
+                  Av. de Brasil 7, Madrid
+                </span>
+              </div>
+            </div>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=The+Irish+Rover+Avenida+de+Brasil+7+Madrid"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="btn btn-preboda-maps"
+            ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Cómo llegar</a>
+          </div>
+          <figure class="preboda-photo">
+            <img
+              src="./images/Irish_Rover_Bernabeu.webp"
+              alt="The Irish Rover, junto al Bernabéu"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
     </main>
 
     <a data-register-link class="mobile-register-cta" href="#">Confírmanos tu asistencia</a>

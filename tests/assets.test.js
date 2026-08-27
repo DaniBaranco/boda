@@ -8,7 +8,6 @@ const REQUIRED_FILES = [
   "js/config.js",
   "js/form-link.js",
   "js/confetti.js",
-  "js/invitation.js",
   "orchestrator/agent-orchestrator.js",
   "orchestrator/agents.js",
 ];
@@ -47,12 +46,6 @@ test("form-link.js contiene funciones esperadas", () => {
 test("confetti.js contiene función initConfetti", () => {
   const content = readFileSync("js/confetti.js", "utf-8");
   assert.ok(content.includes("export function initConfetti"), "confetti.js debe exportar initConfetti");
-});
-
-test("invitation.js contiene funciones de descarga PDF", () => {
-  const content = readFileSync("js/invitation.js", "utf-8");
-  assert.ok(content.includes("downloadInvitation"), "invitation.js debe tener downloadInvitation");
-  assert.ok(content.includes("initInvitation"), "invitation.js debe tener initInvitation");
 });
 
 test("package.json tiene configuración correcta", () => {

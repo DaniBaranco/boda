@@ -9,26 +9,14 @@ test("Integración: todos los scripts se cargan en index.html", () => {
   assert.ok(content.includes("css/styles.css"), "index.html debe cargar styles.css");
 });
 
-test("Integración: todos los scripts se cargan en info.html", () => {
-  const content = readFileSync("info.html", "utf-8");
-  assert.ok(content.includes("js/app.js"), "info.html debe cargar app.js");
-  assert.ok(content.includes("js/invitation.js"), "info.html debe cargar invitation.js");
-  assert.ok(content.includes("css/styles.css"), "info.html debe cargar styles.css");
-});
-
 test("Integración: estructura de datos de boda es consistente entre archivos", () => {
-  const configContent = readFileSync("js/config.js", "utf-8");
+  readFileSync("js/config.js", "utf-8");
   const indexContent = readFileSync("index.html", "utf-8");
-  const infoContent = readFileSync("info.html", "utf-8");
 
   // Verificar que existen referencias a campos de boda
   assert.ok(
     indexContent.includes("data-wedding-field"),
     "index.html debe usar data-wedding-field"
-  );
-  assert.ok(
-    infoContent.includes("data-wedding-field"),
-    "info.html debe usar data-wedding-field"
   );
 
   // Verificar campos específicos
@@ -52,26 +40,14 @@ test("Integración: la URL de Google Forms está configurada", () => {
 
 test("Integración: todos los elementos interactivos tienen data-attributes", () => {
   const indexContent = readFileSync("index.html", "utf-8");
-  const infoContent = readFileSync("info.html", "utf-8");
 
   // Botones de confetti
   assert.ok(indexContent.includes("confettiBtn"), "index.html debe tener botón de confetti");
-  assert.ok(infoContent.includes("confettiBtn"), "info.html debe tener botón de confetti");
 
   // Enlaces de registro
   assert.ok(
     indexContent.includes("data-register-link"),
     "index.html debe tener enlaces de registro"
-  );
-  assert.ok(
-    infoContent.includes("data-register-link"),
-    "info.html debe tener enlaces de registro"
-  );
-
-  // Botón de descarga de invitación en info.html
-  assert.ok(
-    infoContent.includes("downloadInviteBtn"),
-    "info.html debe tener botón de descarga"
   );
 });
 

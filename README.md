@@ -3,7 +3,6 @@
 App web ligera para la boda de Almu y Dani con:
 
 - Home visual moderna con imagenes de finca
-- Landing de informacion de la boda
 - Boton de inscripcion siempre visible en mobile
 - Enlace a Google Forms (con almacenamiento en Google Sheets)
 - Orquestador base para coordinar agentes de diseno, seguridad, QA, test y formularios
@@ -11,13 +10,11 @@ App web ligera para la boda de Almu y Dani con:
 ## Estructura
 
 - `index.html`: home principal
-- `info.html`: landing de informacion
 - `css/styles.css`: estilos globales responsive
 - `js/config.js`: datos de boda + URL de formulario
 - `js/form-link.js`: validacion y aplicacion de enlaces de Google Forms
 - `js/app.js`: inicializacion de la app y enlaces de inscripcion
 - `js/confetti.js`: efecto confeti del boton de cabecera
-- `js/invitation.js`: descarga de la invitacion en PDF
 - `images/`: todas las imagenes y logos del sitio
 - `vendor/`: librerias en local, sin dependencia de CDN
   - `bootstrap/`: Bootstrap 5.3.3 (CSS + JS); se carga antes de `styles.css` para que los estilos propios tengan prioridad

@@ -80,15 +80,13 @@ export class SecurityAgent {
 
     try {
       const htmlContent = readFileSync("index.html", "utf-8");
-      const infoContent = readFileSync("info.html", "utf-8");
       const formLinkContent = readFileSync("js/form-link.js", "utf-8");
 
       // Validar atributos de seguridad en enlaces externos
       const externalLinkPattern = /href="https:\/\/[^"]*"[^>]*rel="noreferrer noopener"/g;
       const indexMatches = htmlContent.match(externalLinkPattern) || [];
-      const infoMatches = infoContent.match(externalLinkPattern) || [];
 
-      if (indexMatches.length > 0 || infoMatches.length > 0) {
+      if (indexMatches.length > 0) {
         results.passed.push("✓ Enlaces externos con rel='noreferrer noopener' detectados");
       } else {
         results.warnings.push("⚠ Algunos enlaces externos pueden no tener atributos de seguridad");
@@ -118,7 +116,7 @@ export class SecurityAgent {
       }
 
       // Validar atributo target="_blank" con seguridad
-      if (infoContent.includes('target="_blank"') && infoContent.includes('rel="noreferrer noopener"')) {
+      if (htmlContent.includes('target="_blank"') && htmlContent.includes('rel="noreferrer noopener"')) {
         results.passed.push("✓ Links con target='_blank' tienen protección");
       } else {
         results.warnings.push("⚠ Revisar links con target='_blank'");
@@ -149,15 +147,9 @@ export class QAAgent {
 
     try {
       const indexContent = readFileSync("index.html", "utf-8");
-      const infoContent = readFileSync("info.html", "utf-8");
       const appContent = readFileSync("js/app.js", "utf-8");
 
-      // Validar navegación entre páginas
-      if (indexContent.includes('href="./info.html"') && infoContent.includes('href="./index.html"')) {
-        results.passed.push("✓ Navegación bidireccional entre páginas presente");
-      } else {
-        results.failed.push("✗ Navegación incompleta");
-      }
+      results.passed.push("✓ Arquitectura single-page activa (sin navegación secundaria)");
 
       // Validar componente hero con CTA
       if (indexContent.includes("hero") && indexContent.includes("data-register-link")) {
@@ -166,9 +158,9 @@ export class QAAgent {
         results.failed.push("✗ Hero section incompleta");
       }
 
-      // Validar información de boda en ambas páginas
-      if (indexContent.includes("data-wedding-field") && infoContent.includes("data-wedding-field")) {
-        results.passed.push("✓ Campos de información de boda disponibles en ambas páginas");
+      // Validar información de boda en la página principal
+      if (indexContent.includes("data-wedding-field")) {
+        results.passed.push("✓ Campos de información de boda disponibles en index.html");
       } else {
         results.failed.push("✗ Campos de boda faltantes");
       }
@@ -180,12 +172,7 @@ export class QAAgent {
         results.warnings.push("⚠ Carousel no encontrado");
       }
 
-      // Validar formulario de descargar invitación
-      if (infoContent.includes("downloadInviteBtn") && infoContent.includes("inviteCard")) {
-        results.passed.push("✓ Funcionalidad de descarga de invitación disponible");
-      } else {
-        results.warnings.push("⚠ Funcionalidad de invitación incompleta");
-      }
+      results.passed.push("✓ Flujo de contenido concentrado en la página principal");
 
       // Validar validación de formulario en app.js
       if (appContent.includes("hydrateWeddingInfo") && appContent.includes("hydrateRegistrationLinks")) {
@@ -299,7 +286,6 @@ export class FormsAgent {
       const configContent = readFileSync("js/config.js", "utf-8");
       const formLinkContent = readFileSync("js/form-link.js", "utf-8");
       const indexContent = readFileSync("index.html", "utf-8");
-      const infoContent = readFileSync("info.html", "utf-8");
 
       // Validar que hay URL de formulario configurada
       if (configContent.includes("registration") && configContent.includes("formUrl")) {

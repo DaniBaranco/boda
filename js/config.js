@@ -3,7 +3,7 @@ export const APP_CONFIG = {
     couple: "Almu & Dani",
     date: "03-07-2027",
     venue: "Finca Casa de Oficios",
-    ceremony: "Iglesia de St. María Magdalena",
+    ceremony: "Iglesia de Santa María Magdalena",
     ceremonyTown: "Torrelaguna (Madrid)",
     location: "Torremocha del Jarama (Madrid)",
     ceremonyTime: "18:30"
