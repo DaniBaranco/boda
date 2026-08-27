@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="App de inscripcion para la boda de Almu y Dani. Informacion del evento y acceso directo al formulario de invitados."
+      content="App de inscripción para la boda de Almu y Dani. Hoja de ruta del día, información del evento y acceso directo al formulario de invitados."
     />
     <title>Almu & Dani | Boda 03-07-2027</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./vendor/aos/aos.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=5" />
+    <link rel="stylesheet" href="./css/styles.css?v=22" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
     <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
@@ -29,93 +29,175 @@
     <script src="./vendor/gsap/gsap.min.js" defer></script>
     <script src="./vendor/gsap/ScrollTrigger.min.js" defer></script>
     -->
-
   </head>
   <body>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
     <div class="page-background" aria-hidden="true"></div>
 
+    <!-- Corazones flotando suavemente por detras del contenido -->
+    <div class="floating-hearts" aria-hidden="true">
+      <span class="float-heart" style="--x: 6%; --s: 0.9; --t: 19s; --d: 0s"><i class="bi bi-heart-fill"></i></span>
+      <span class="float-heart" style="--x: 22%; --s: 1.3; --t: 24s; --d: 6s"><i class="bi bi-heart-fill"></i></span>
+      <span class="float-heart" style="--x: 43%; --s: 0.8; --t: 17s; --d: 11s"><i class="bi bi-heart-fill"></i></span>
+      <span class="float-heart" style="--x: 61%; --s: 1.1; --t: 22s; --d: 3s"><i class="bi bi-heart-fill"></i></span>
+      <span class="float-heart" style="--x: 78%; --s: 0.85; --t: 20s; --d: 14s"><i class="bi bi-heart-fill"></i></span>
+      <span class="float-heart" style="--x: 91%; --s: 1.2; --t: 25s; --d: 8s"><i class="bi bi-heart-fill"></i></span>
+    </div>
+
     <header class="site-header">
-      <button id="confettiBtn" class="confetti-btn" title="Lanzar confeti" aria-label="Lanzar confeti">🎉</button>
-      <figure class="site-logo">
-        <img src="./images/labanda.png" alt="Logo de la banda" />
-      </figure>
+      <button
+        id="confettiBtn"
+        class="confetti-btn"
+        type="button"
+        title="Ver teléfonos de los novios"
+        aria-label="Ver teléfonos de los novios"
+        aria-expanded="false"
+        aria-controls="couplePhonePanel"
+      >
+        <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+      </button>
+      <div id="couplePhonePanel" class="phone-panel" aria-hidden="true">
+        <p class="phone-panel-eyebrow">Llámanos cuando quieras</p>
+        <p class="phone-panel-name">Almu</p>
+        <a href="https://wa.me/34600123456" target="_blank" rel="noreferrer noopener">+34 600 123 456</a>
+        <p class="phone-panel-name">Dani</p>
+        <a href="https://wa.me/34600654321" target="_blank" rel="noreferrer noopener">+34 600 654 321</a>
+      </div>
+      <span class="site-logo-icon" role="img" aria-label="Logo de la boda">
+        <i class="bi bi-hearts" aria-hidden="true"></i>
+      </span>
       <a class="brand" href="./index.html">Almu & Dani</a>
       <p class="site-date" data-wedding-field="date">03-07-2027</p>
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero hero--roadmap">
         <article class="hero-card glass-panel">
           <div class="hero-content">
             <p class="eyebrow">¡Nos casamos!</p>
             <p class="hero-subtitle">
-              Te invitamos a celebrar con nosotros un dia inolvidable.
+              Te invitamos a celebrar con nosotros un día inolvidable. Esta es la ruta del día:
+              síguela paso a paso y no te pierdas nada.
             </p>
 
-            <dl class="event-grid">
-              <div>
-                <figure class="event-logo">
-                  <img src="./images/finca.png" alt="Logo Finca" />
-                </figure>
-                <dt>Finca</dt>
-                <dd data-wedding-field="venue">Finca Casa de Oficios</dd>
-                <figure class="event-mobile-photo">
-                  <img src="./images/entrada_finca.jpeg" alt="Entrada de la finca" />
-                </figure>
+            <div class="countdown" data-countdown aria-label="Cuenta atrás para la boda">
+              <div class="countdown-cell">
+                <span class="countdown-num" data-countdown-unit="days">--</span>
+                <span class="countdown-label">días</span>
               </div>
-              <div>
-                <figure class="event-logo">
-                  <img src="./images/church.png" alt="Logo Iglesia" />
-                </figure>
-                <dt>Ceremonia</dt>
-                <dd data-wedding-field="ceremony">Iglesia de Santa Maria Magdalena</dd>
-                <figure class="event-mobile-photo">
-                  <img src="./images/iglesia-torrelaguna.png" alt="Iglesia de Santa Maria Magdalena en Torrelaguna" />
-                </figure>
+              <div class="countdown-cell">
+                <span class="countdown-num" data-countdown-unit="hours">--</span>
+                <span class="countdown-label">horas</span>
               </div>
-              <div>
-                <figure class="event-logo">
-                  <img src="./images/location.png" alt="Logo Ubicación" />
-                </figure>
-                <dt>Ubicacion</dt>
-                <dd data-wedding-field="location">Torremocha del Jarama</dd>
-                <div class="event-mobile-map" aria-label="Mapa de la Iglesia de Santa Maria Magdalena en Torrelaguna">
-                  <iframe
-                    title="Mapa Iglesia de Santa Maria Magdalena, Torrelaguna"
-                    src="https://www.google.com/maps?q=Iglesia%20de%20Santa%20Maria%20Magdalena%20Torrelaguna%20Madrid&output=embed"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
+              <div class="countdown-cell">
+                <span class="countdown-num" data-countdown-unit="minutes">--</span>
+                <span class="countdown-label">min</span>
               </div>
-            </dl>
+              <div class="countdown-cell">
+                <span class="countdown-num" data-countdown-unit="seconds">--</span>
+                <span class="countdown-label">seg</span>
+              </div>
+            </div>
 
             <div class="hero-actions">
               <a data-register-link class="btn btn-band-gradient" href="#">Confirmar asistencia</a>
-              <a class="btn btn-gradient-border" href="./info.html">Ver detalles</a>
             </div>
           </div>
         </article>
       </section>
 
-      <section class="home-note glass-panel section-card" aria-label="Mensaje de bienvenida" data-aos="fade-up">
-        <h2>Un fin de semana para recordar</h2>
-        <p>
-          Nos hace mucha ilusion compartir este momento con vosotros. Queremos una celebracion cercana,
-          divertida y llena de detalles bonitos, asi que en esta app tenéis toda la informacion clave y el acceso
-          directo a la inscripcion.
-        </p>
+      <section id="ruta" class="roadmap-section" aria-label="Hoja de ruta del día de la boda">
+        <h2 class="roadmap-title">¡Así será nuestro gran día!</h2>
+        <p class="roadmap-intro">Una ruta con cuatro paradas. Cada miga de pan que pises te acerca a la fiesta.</p>
+
+        <ol class="roadmap" data-roadmap>
+          <span class="roadmap-progress" data-roadmap-progress aria-hidden="true"></span>
+
+          <li class="stop" id="stop-ceremonia" data-stop>
+            <span class="stop-node"><i class="bi bi-heart-fill" aria-hidden="true"></i></span>
+            <article class="stop-card glass-panel">
+              <span class="stop-time">18:30</span>
+              <h3>Ceremonia</h3>
+              <p class="stop-place">
+                <strong data-wedding-field="ceremony">Iglesia de Santa María Magdalena</strong><br />
+                <span data-wedding-field="ceremonyTown">Torrelaguna (Madrid)</span>
+              </p>
+              <p>El momento más importante del día. Llega con tiempo para coger buen sitio.</p>
+              <figure class="stop-photo">
+                <img src="./images/iglesia-torrelaguna.png" alt="Iglesia de Santa María Magdalena en Torrelaguna" loading="lazy" />
+              </figure>
+              <a
+                class="btn btn-como-llegar"
+                href="https://www.google.com/maps/dir/?api=1&destination=Iglesia+de+Santa+Maria+Magdalena+Torrelaguna+Madrid"
+                target="_blank"
+                rel="noreferrer noopener"
+              ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Cómo llegar a la iglesia</a>
+            </article>
+          </li>
+
+          <li class="stop" id="stop-coctel" data-stop>
+            <span class="stop-node"><i class="bi bi-cup-straw" aria-hidden="true"></i></span>
+            <article class="stop-card glass-panel">
+              <span class="stop-time">20:00</span>
+              <h3>Recepción y cóctel</h3>
+              <p class="stop-place">
+                <strong data-wedding-field="venue">Finca Casa de Oficios</strong><br />
+                <span data-wedding-field="location">Torremocha del Jarama (Madrid)</span>
+              </p>
+              <p>Brindis de bienvenida en los jardines de la finca. Empieza lo bueno.</p>
+              <figure class="stop-photo">
+                <img src="./images/entrada_finca.jpeg" alt="Entrada de la finca" loading="lazy" />
+              </figure>
+              <a
+                class="btn btn-como-llegar"
+                href="https://www.google.com/maps/dir/?api=1&destination=Finca+Casa+de+Oficios+Torremocha+del+Jarama+Madrid"
+                target="_blank"
+                rel="noreferrer noopener"
+              ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Cómo llegar a la finca</a>
+            </article>
+          </li>
+
+          <li class="stop" id="stop-banquete" data-stop>
+            <span class="stop-node"><i class="bi bi-cake2" aria-hidden="true"></i></span>
+            <article class="stop-card glass-panel">
+              <span class="stop-time">A continuación</span>
+              <h3>Banquete</h3>
+              <p>
+                Cena para recuperar fuerzas. Habrá opciones vegetarianas, veganas y menú infantil:
+                indicalo en el formulario y lo dejamos todo confirmado con el catering.
+              </p>
+              <figure class="stop-photo">
+                <img src="./images/mesas_finca.jpg" alt="Mesas preparadas para invitados" loading="lazy" />
+              </figure>
+            </article>
+          </li>
+
+          <li class="stop" id="stop-fiesta" data-stop>
+            <span class="stop-node"><i class="bi bi-music-note-beamed" aria-hidden="true"></i></span>
+            <article class="stop-card glass-panel">
+              <span class="stop-time">Hasta que el cuerpo aguante</span>
+              <h3>¡Fiesta!</h3>
+              <p>
+                Baile, música y sorpresas para cerrar el día por todo lo alto. El bus de vuelta esperará
+                a los valientes.
+              </p>
+              <button type="button" class="btn btn-band-gradient" data-party-btn>
+                <i class="bi bi-stars" aria-hidden="true"></i> ¡Quiero fiesta ya!
+              </button>
+            </article>
+          </li>
+        </ol>
       </section>
 
-      <section class="carousel-section glass-panel" aria-label="Ambiente de la celebracion" data-aos="fade-up">
+      <section class="carousel-section glass-panel" aria-label="Ambiente de la celebración" data-aos="fade-up">
         <div class="carousel-track">
           <figure class="carousel-slide"><img src="./images/entrada_finca.jpeg" alt="Entrada de la finca" /></figure>
           <figure class="carousel-slide"><img src="./images/mesas_finca.jpg" alt="Mesas preparadas para invitados" /></figure>
           <figure class="carousel-slide"><img src="./images/wedding-venue.jpg" alt="Espacio principal del evento" /></figure>
           <figure class="carousel-slide"><img src="./images/entrada_finca.jpeg" alt="Zona de acceso a la finca" /></figure>
-          <figure class="carousel-slide"><img src="./images/mesas_finca.jpg" alt="Detalle de la decoracion de mesas" /></figure>
+          <figure class="carousel-slide"><img src="./images/mesas_finca.jpg" alt="Detalle de la decoración de mesas" /></figure>
           <figure class="carousel-slide"><img src="./images/wedding-venue.jpg" alt="Vista general del entorno de la boda" /></figure>
-          <figure class="carousel-slide"><img src="./images/entrada_finca.jpeg" alt="Camino de entrada a la celebracion" /></figure>
+          <figure class="carousel-slide"><img src="./images/entrada_finca.jpeg" alt="Camino de entrada a la celebración" /></figure>
 
           <figure class="carousel-slide" aria-hidden="true"><img src="./images/entrada_finca.jpeg" alt="" /></figure>
           <figure class="carousel-slide" aria-hidden="true"><img src="./images/mesas_finca.jpg" alt="" /></figure>
@@ -126,14 +208,159 @@
           <figure class="carousel-slide" aria-hidden="true"><img src="./images/entrada_finca.jpeg" alt="" /></figure>
         </div>
       </section>
+
+      <section class="glass-panel section-card bus-card" aria-label="Autobús de ida y vuelta" data-aos="fade-up">
+        <h2>¿Necesitarás autobús de ida y vuelta?</h2>
+        <p>
+          Pondremos un autobús para facilitar todos los traslados del día: primero desde el punto de
+          recogida hasta la ceremonia y, después, de la ceremonia a la finca. Además, habrá regreso a
+          Madrid en dos horarios de salida.
+        </p>
+        <div class="bus-plan" aria-label="Horarios del autobús">
+          <article class="bus-leg">
+            <h3>Ida</h3>
+            <div class="bus-leg-content bus-leg-content--pickup">
+              <span class="bus-time-pill">17:00 h</span>
+              <p class="bus-pickup-detail">
+                <span>
+                  <strong>Punto de recogida</strong><br />
+                  Junto al Metro Sainz de Baranda (Doctor Esquerdo, 109)
+                </span>
+              </p>
+              <a
+                class="btn btn-como-llegar btn-bus-uniform bus-pickup-btn"
+                href="https://www.google.com/maps/dir/?api=1&destination=Estacion+de+Metro+Sainz+de+Baranda+Madrid"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                <span class="bus-pickup-main">Ir al punto de recogida</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="bus-leg">
+            <h3>Vuelta</h3>
+            <div class="bus-leg-content bus-leg-content--times">
+              <span class="bus-time-pill">03:00 h</span>
+              <span class="bus-time-pill">05:00 h</span>
+            </div>
+            <p class="bus-return-detail">
+              El autobús tendrá dos horas de salida desde la finca y hará parada en el mismo punto de recogida de la ida.
+            </p>
+          </article>
+        </div>
+
+        <div class="bus-actions">
+          <a data-bus-link class="btn btn-band-gradient btn-bus-uniform" href="#">
+            <i class="bi bi-bus-front" aria-hidden="true"></i> Inscribirme al autobús
+          </a>
+        </div>
+      </section>
+
+      <section class="glass-panel section-card faq-section" aria-label="Preguntas frecuentes" data-aos="fade-up">
+        <h2>Preguntas frecuentes</h2>
+        <p class="faq-intro">
+          Si tienes dudas sobre transporte, menú o logística, aquí tienes respuestas rápidas.
+        </p>
+
+        <details class="faq-item" open>
+          <summary>¿Habrá servicio de autobús para ir y volver?</summary>
+          <div class="faq-content">
+            <p>
+              Sí. Habrá servicio de ida y vuelta y ajustaremos plazas según las respuestas del formulario.
+              Cuando cerremos horarios exactos, los publicaremos aquí para que podáis organizaros fácilmente.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Cómo comunicamos intolerancias o alergias alimentarias?</summary>
+          <div class="faq-content">
+            <p>
+              En el formulario de inscripción tienes un campo específico para alergias, intolerancias y preferencias.
+              Revisaremos cada caso con el catering para que todo esté bien preparado el día de la boda.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Hay opciones vegetarianas, veganas o menú infantil?</summary>
+          <div class="faq-content">
+            <p>
+              Sí. Contaremos con opciones vegetarianas, veganas y menú infantil.
+              Solo tienes que indicarlo en la inscripción para dejar cada menú confirmado con antelación.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Hasta cuándo puedo confirmar asistencia?</summary>
+          <div class="faq-content">
+            <p>
+              Te recomendamos confirmar cuanto antes para ayudarnos con la organización.
+              La fecha límite oficial de RSVP se comunicará por el mismo canal de invitación y se reflejará en esta página.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <section class="preboda-section" aria-label="Preboda" data-aos="fade-up">
+        <div class="preboda-inner">
+          <div class="preboda-text">
+            <p class="preboda-eyebrow"><i class="bi bi-stars" aria-hidden="true"></i> Antes de la gran fiesta</p>
+            <h2>¿Te apuntas a la preboda?</h2>
+            <p class="preboda-desc">
+              El día antes de la boda nos gustaría reunirnos con los que quieran venir a tomar algo
+              juntos, calentar motores y disfrutar de una tarde tranquila en buena compañía.
+              ¡La excusa perfecta para llegar al gran día ya en modo celebración!
+            </p>
+            <div class="preboda-details">
+              <div class="preboda-detail">
+                <i class="bi bi-calendar-heart-fill" aria-hidden="true"></i>
+                <span>02 de julio de 2027</span>
+              </div>
+              <div class="preboda-detail">
+                <i class="bi bi-clock-fill" aria-hidden="true"></i>
+                <span class="preboda-time">20:00 – 00:00 h</span>
+              </div>
+              <div class="preboda-detail">
+                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                <span>
+                  <strong>The Irish Rover</strong><br />
+                  Av. de Brasil 7, Madrid
+                </span>
+              </div>
+            </div>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=The+Irish+Rover+Avenida+de+Brasil+7+Madrid"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="btn btn-preboda-maps"
+            ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Cómo llegar</a>
+          </div>
+          <figure class="preboda-photo">
+            <img
+              src="./images/Irish_Rover_Bernabeu.webp"
+              alt="The Irish Rover, junto al Bernabéu"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
     </main>
 
-    <a data-register-link class="mobile-register-cta" href="#">Inscripcion</a>
+    <a data-register-link class="mobile-register-cta" href="#">Confírmanos tu asistencia</a>
 
     <script type="module" src="./js/app.js?v=3"></script>
     <script type="module">
       import { initConfetti } from './js/confetti.js?v=1';
+      import { initCountdown, initRoadmap, initScrollProgress } from './js/roadmap.js?v=3';
       initConfetti();
+      initCountdown();
+      initRoadmap();
+      initScrollProgress();
       AOS.init({ duration: 700, once: true, offset: 80 });
     </script>
   </body>

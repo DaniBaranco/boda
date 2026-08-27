@@ -38,11 +38,11 @@ Verifica seguridad en enlaces y protección de datos:
 **Ubicación:** `orchestrator/agent-implementations.js`
 
 Valida flujos críticos y comportamiento esperado:
-- ✓ Navegación bidireccional (index.html ↔ info.html)
+- ✓ Arquitectura single-page (index.html)
 - ✓ Hero section con CTA
-- ✓ Campos de información de boda en ambas páginas
+- ✓ Campos de información de boda en página principal
 - ✓ Carousel de fotos
-- ✓ Funcionalidad de descarga de PDF
+- ✓ Flujo centrado en una sola página
 - ✓ Inicialización de datos
 - ✓ Manejo de errores
 

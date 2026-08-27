@@ -26,13 +26,30 @@ function hydrateRegistrationLinks() {
       link.setAttribute("title", "Configura la URL real de Google Forms en js/config.js");
     });
 
-    console.warn("No se pudo configurar el enlace de inscripcion:", error);
+    console.warn("No se pudo configurar el enlace de inscripción:", error);
+  }
+}
+
+function hydrateBusLinks() {
+  const busLinks = [...document.querySelectorAll("[data-bus-link]")];
+  if (busLinks.length === 0) return;
+
+  try {
+    mapRegistrationLinks(APP_CONFIG.registration.busFormUrl, busLinks);
+  } catch {
+    // El formulario del autobús aún no existe: el botón queda deshabilitado.
+    busLinks.forEach((link) => {
+      link.setAttribute("href", "#");
+      link.setAttribute("aria-disabled", "true");
+      link.setAttribute("title", "El formulario del autobús estará disponible muy pronto");
+    });
   }
 }
 
 function init() {
   hydrateWeddingInfo();
   hydrateRegistrationLinks();
+  hydrateBusLinks();
 }
 
 init();

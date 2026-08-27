@@ -1,47 +1,45 @@
 /**
- * Confetti trigger for wedding celebration!
+ * Header phone panel trigger.
  */
 
 export function initConfetti() {
   const btn = document.getElementById("confettiBtn");
-  if (!btn) return;
+  const panel = document.getElementById("couplePhonePanel");
+  if (!btn || !panel) return;
+
+  const closePanel = () => {
+    btn.classList.remove("is-open");
+    panel.classList.remove("is-open");
+    btn.setAttribute("aria-expanded", "false");
+    panel.setAttribute("aria-hidden", "true");
+  };
+
+  const openPanel = () => {
+    btn.classList.add("is-open");
+    panel.classList.add("is-open");
+    btn.setAttribute("aria-expanded", "true");
+    panel.setAttribute("aria-hidden", "false");
+  };
 
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    triggerConfetti();
-  });
-}
+    if (btn.classList.contains("is-open")) {
+      closePanel();
+      return;
+    }
 
-function triggerConfetti() {
-  if (!window.confetti) {
-    console.warn("canvas-confetti not loaded yet");
-    return;
-  }
-
-  // Launch confetti from center with wedding colors
-  window.confetti({
-    particleCount: 180,
-    spread: 360,
-    origin: { x: 0.5, y: 0.5 },
-    colors: ["#d9b8ff", "#b78bff", "#8d62ff", "#b47b39", "#8d5d24"],
+    openPanel();
   });
 
-  // Add some falling confetti
-  setTimeout(() => {
-    window.confetti({
-      particleCount: 100,
-      spread: 120,
-      origin: { x: 0.95, y: 0 },
-      colors: ["#d9b8ff", "#b78bff", "#8d62ff"],
-    });
-  }, 150);
+  document.addEventListener("click", (event) => {
+    if (!btn.classList.contains("is-open")) return;
+    if (btn.contains(event.target) || panel.contains(event.target)) return;
+    closePanel();
+  });
 
-  setTimeout(() => {
-    window.confetti({
-      particleCount: 100,
-      spread: 120,
-      origin: { x: 0.05, y: 0 },
-      colors: ["#d9b8ff", "#b78bff", "#8d62ff"],
-    });
-  }, 300);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closePanel();
+    }
+  });
 }

@@ -3,11 +3,16 @@ export const APP_CONFIG = {
     couple: "Almu & Dani",
     date: "03-07-2027",
     venue: "Finca Casa de Oficios",
-    ceremony: "Iglesia de St. María Magdalena",
-    location: "Torrelavega, Madrid"
+    ceremony: "Iglesia de Santa María Magdalena",
+    ceremonyTown: "Torrelaguna (Madrid)",
+    location: "Torremocha del Jarama (Madrid)",
+    ceremonyTime: "18:30"
   },
   registration: {
     // Sustituye esta URL por la de tu Google Form real.
-    formUrl: "https://forms.gle/REEMPLAZAR_CON_FORM_REAL"
+    formUrl: "https://forms.gle/REEMPLAZAR_CON_FORM_REAL",
+    // URL del formulario del autobus (pendiente de crear). Mientras este
+    // vacia, el boton del autobus aparece deshabilitado.
+    busFormUrl: ""
   }
 };
