@@ -20,7 +20,7 @@ App web ligera para la boda de Almu y Dani con:
 - `js/form-link.js`: validacion y aplicacion de enlaces de Google Forms
 - `js/app.js`: inicializacion de la app y enlaces de inscripcion
 - `js/confetti.js`: efecto confeti del boton de cabecera
-- `js/pwa.js`: registro del Service Worker y boton "Instalar app"
+- `js/pwa.js`: registro del Service Worker y botones "Descarga la invitación"
 - `manifest.webmanifest`: metadatos de la PWA (nombre, iconos, colores)
 - `sw.js`: Service Worker (cache offline del app shell)
 - `icons/`: iconos de la PWA (192, 512, maskable, apple-touch, favicon)
@@ -93,9 +93,12 @@ solo para llevar la invitación siempre a mano, no para inscribirse.
 - `sw.js`: Service Worker que cachea el "app shell" (ambas páginas) para
   poder abrir la invitación sin conexión (util el dia del evento, con
   cobertura irregular en la finca)
-- `js/pwa.js`: registra el Service Worker y muestra el botón **Instalar app**
-  cuando el navegador lo permite (presente tanto en `index.html` como en
-  `invitacion.html`)
+- `js/pwa.js`: registra el Service Worker y controla los botones **Descarga la
+  invitación** de `index.html` (uno en el hero para escritorio y otro en el
+  grupo flotante inferior para mobile). Siempre están visibles: si el navegador
+  ofrece instalación nativa (`beforeinstallprompt`, Chrome/Edge) lanza el
+  diálogo; si no (iOS/Safari, Firefox) abre `invitacion.html` para guardarla a
+  mano. La propia `invitacion.html` no lleva botón.
 
 ### Regenerar iconos
 

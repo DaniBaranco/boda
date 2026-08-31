@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./vendor/aos/aos.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=23" />
+    <link rel="stylesheet" href="./css/styles.css?v=24" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
     <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
@@ -112,6 +112,15 @@
 
             <div class="hero-actions">
               <a data-register-link class="btn btn-band-gradient" href="#">Confirmar asistencia</a>
+              <button
+                class="btn btn-gradient-border"
+                data-install-btn
+                type="button"
+                title="Descarga la invitación en tu móvil"
+              >
+                <i class="bi bi-download" aria-hidden="true"></i>
+                <span>Descarga la invitación</span>
+              </button>
             </div>
           </div>
         </article>
@@ -365,11 +374,10 @@
     <div class="mobile-cta-group">
       <a data-register-link class="mobile-register-cta" href="#">Confírmanos tu asistencia</a>
       <button
-        id="installBtn"
-        class="install-btn is-hidden"
+        class="install-btn"
+        data-install-btn
         type="button"
         title="Descarga la invitación en tu móvil"
-        aria-label="Descarga la invitación en tu móvil"
       >
         <i class="bi bi-download" aria-hidden="true"></i>
         <span>Descarga la invitación</span>
@@ -386,6 +394,6 @@
       initScrollProgress();
       AOS.init({ duration: 700, once: true, offset: 80 });
     </script>
-    <script type="module" src="./js/pwa.js"></script>
+    <script type="module" src="./js/pwa.js?v=2"></script>
   </body>
 </html>

@@ -124,8 +124,8 @@ h2,
   transform: scale(0.95);
 }
 
-/* Botón "Descarga la invitación": vive junto al CTA fijo de asistencia en
-   mobile (solo tiene sentido en mobile, es donde se instala la app). */
+/* Botón flotante "Descarga la invitación": acompaña al CTA de asistencia
+   dentro de .mobile-cta-group (solo visible en mobile). */
 .install-btn {
   position: static;
   display: flex;
@@ -328,6 +328,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.4rem;
   text-decoration: none;
   padding: 0.7rem 1.05rem;
   border-radius: 999px;
@@ -714,7 +715,9 @@ h1 {
     margin-bottom: 1.1rem;
   }
 
-  .hero-actions [data-register-link] {
+  /* En mobile estos dos CTA ya viven en el grupo flotante inferior */
+  .hero-actions [data-register-link],
+  .hero-actions [data-install-btn] {
     display: none;
   }
 
