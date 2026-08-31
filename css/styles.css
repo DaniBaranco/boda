@@ -124,177 +124,6 @@ h2,
   transform: scale(0.95);
 }
 
-/* Botón flotante "Descarga la invitación": acompaña al CTA de asistencia
-   dentro de .mobile-cta-group (solo visible en mobile). */
-.install-btn {
-  position: static;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  border-radius: 999px;
-  border: 2px solid transparent;
-  background:
-    linear-gradient(rgba(255, 252, 247, 0.96), rgba(255, 252, 247, 0.96)) padding-box,
-    linear-gradient(120deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end)) border-box;
-  padding: 0.5rem 1.3rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--accent-gold-dark);
-  cursor: pointer;
-  transition: transform 180ms ease, box-shadow 180ms ease;
-  box-shadow: 0 6px 18px rgba(80, 67, 171, 0.2);
-  line-height: 1;
-}
-
-.install-btn i {
-  font-size: 1rem;
-}
-
-.install-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 26px rgba(80, 67, 171, 0.3);
-}
-
-.install-btn:active {
-  transform: scale(0.95);
-}
-
-.install-btn.is-hidden {
-  display: none;
-}
-
-/* ============================================================
-   Modal de ayuda para instalar la invitación
-   Se muestra cuando el navegador no ofrece instalación con un
-   clic (iOS/Safari, Firefox): explica los pasos manuales.
-   ============================================================ */
-
-.install-help {
-  position: fixed;
-  inset: 0;
-  z-index: 300;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  background: rgba(16, 12, 10, 0.56);
-  animation: install-help-in 200ms ease;
-}
-
-.install-help__dialog {
-  width: min(420px, 100%);
-  max-height: 88vh;
-  overflow-y: auto;
-  position: relative;
-  padding: 1.9rem 1.5rem 1.5rem;
-  border-radius: 24px;
-  background: #fffdf8;
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.install-help__close {
-  position: absolute;
-  top: 0.7rem;
-  right: 0.9rem;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  box-shadow: none;
-  background: transparent;
-  font-family: inherit;
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--text-soft);
-  cursor: pointer;
-}
-
-.install-help__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--band-grad-start), var(--band-grad-end));
-  color: #fff;
-  font-size: 1.4rem;
-  margin-bottom: 0.6rem;
-}
-
-.install-help__dialog h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.6rem;
-  margin: 0 0 0.9rem;
-}
-
-.install-help__steps {
-  margin: 0 0 1.2rem;
-  padding: 0;
-  list-style: none;
-  counter-reset: install-step;
-  text-align: left;
-}
-
-.install-help__steps li {
-  counter-increment: install-step;
-  position: relative;
-  padding: 0 0 0 2.2rem;
-  margin-bottom: 0.85rem;
-  color: var(--text-soft);
-  line-height: 1.5;
-}
-
-.install-help__steps li::before {
-  content: counter(install-step);
-  position: absolute;
-  left: 0;
-  top: 0.05rem;
-  display: grid;
-  place-items: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--band-grad-start), var(--band-grad-end));
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.install-help__steps strong {
-  color: var(--text-main);
-}
-
-.install-help__link {
-  display: inline-block;
-  padding: 0.65rem 1.4rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-  color: #fff;
-  background: linear-gradient(120deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end));
-  box-shadow: 0 3px 0 rgba(80, 67, 171, 0.55), 0 10px 24px rgba(80, 67, 171, 0.34);
-}
-
-.install-help__link:hover {
-  filter: brightness(1.15) saturate(1.25);
-}
-
-@keyframes install-help-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .install-help {
-    animation: none;
-  }
-}
-
 .confetti-btn.is-open {
   transform: rotate(360deg);
 }
@@ -846,9 +675,8 @@ h1 {
     margin-bottom: 1.1rem;
   }
 
-  /* En mobile estos dos CTA ya viven en el grupo flotante inferior */
-  .hero-actions [data-register-link],
-  .hero-actions [data-install-btn] {
+  /* En mobile el CTA de asistencia ya vive en el grupo flotante inferior */
+  .hero-actions [data-register-link] {
     display: none;
   }
 
@@ -863,7 +691,7 @@ h1 {
   main {
     width: calc(100% - 1rem);
     max-width: 1040px;
-    margin-bottom: 10.5rem;
+    margin-bottom: 8rem;
   }
 
   .mobile-cta-group {
@@ -1644,10 +1472,5 @@ h1 {
   .mobile-register-cta {
     width: calc(100% - 1rem);
     padding: 0.75rem 1rem;
-  }
-
-  .install-btn {
-    width: calc(100% - 1rem);
-    max-width: 260px;
   }
 }

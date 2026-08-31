@@ -9,15 +9,8 @@
     />
     <title>Almu & Dani | Boda 03-07-2027</title>
 
-    <!-- PWA: instalable en el móvil, con toda la info de la boda -->
-    <link rel="manifest" href="./manifest.webmanifest" />
     <meta name="theme-color" content="#8d62ff" />
     <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
-    <link rel="apple-touch-icon" href="./icons/apple-touch-180.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Almu & Dani" />
-    <meta name="mobile-web-app-capable" content="yes" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +22,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./vendor/aos/aos.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=25" />
+    <link rel="stylesheet" href="./css/styles.css?v=26" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
     <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
@@ -112,15 +105,6 @@
 
             <div class="hero-actions">
               <a data-register-link class="btn btn-band-gradient" href="#">Confirmar asistencia</a>
-              <button
-                class="btn btn-gradient-border"
-                data-install-btn
-                type="button"
-                title="Descarga la invitación en tu móvil"
-              >
-                <i class="bi bi-download" aria-hidden="true"></i>
-                <span>Descarga la invitación</span>
-              </button>
             </div>
           </div>
         </article>
@@ -373,15 +357,6 @@
 
     <div class="mobile-cta-group">
       <a data-register-link class="mobile-register-cta" href="#">Confírmanos tu asistencia</a>
-      <button
-        class="install-btn"
-        data-install-btn
-        type="button"
-        title="Descarga la invitación en tu móvil"
-      >
-        <i class="bi bi-download" aria-hidden="true"></i>
-        <span>Descarga la invitación</span>
-      </button>
     </div>
 
     <script type="module" src="./js/app.js?v=3"></script>
@@ -394,6 +369,5 @@
       initScrollProgress();
       AOS.init({ duration: 700, once: true, offset: 80 });
     </script>
-    <script type="module" src="./js/pwa.js?v=3"></script>
   </body>
 </html>
