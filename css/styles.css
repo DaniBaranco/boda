@@ -600,6 +600,102 @@ h1 {
   color: #c62828;
 }
 
+/* ============================================================
+   Pop-up de vídeo (save the date): solo mobile, aparece con un
+   pequeño salto suave y se puede cerrar en cualquier momento.
+   ============================================================ */
+
+.video-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 210;
+  display: none;
+}
+
+.video-popup[hidden] {
+  display: none !important;
+}
+
+.video-popup.is-visible {
+  display: block;
+}
+
+.video-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 12, 10, 0.62);
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+
+.video-popup.is-visible .video-popup__backdrop {
+  opacity: 1;
+}
+
+.video-popup__dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(92vw, 420px);
+  border-radius: 26px;
+  overflow: hidden;
+  background: #10100f;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translate(-50%, -46%) scale(0.92);
+  transition: opacity 360ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 360ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.video-popup.is-visible .video-popup__dialog {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.video-popup__close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(16, 12, 10, 0.5);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+}
+
+.video-popup__close:hover {
+  background: rgba(16, 12, 10, 0.7);
+}
+
+.video-popup__video {
+  display: block;
+  width: 100%;
+  max-height: 80vh;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-popup__backdrop,
+  .video-popup__dialog {
+    transition: none;
+  }
+}
+
+/* El pop-up de vídeo es solo para mobile */
+@media (min-width: 769px) {
+  .video-popup {
+    display: none !important;
+  }
+}
+
 @keyframes rise-in {
   from {
     opacity: 0;
