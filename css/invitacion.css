@@ -29,6 +29,52 @@
   margin: 0.25rem 0;
 }
 
+/* Cabecera con foto de portada: la imagen da contexto visual inmediato,
+   el texto flota encima con un degradado para mantener la legibilidad. */
+.invitacion-hero {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(80, 67, 171, 0.25);
+  margin-bottom: 0.25rem;
+}
+
+.invitacion-hero-photo {
+  margin: 0;
+  height: clamp(200px, 42vh, 320px);
+}
+
+.invitacion-hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.invitacion-hero-text {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.5rem 1.25rem 1.25rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(30, 15, 60, 0) 0%, rgba(30, 15, 60, 0.78) 65%, rgba(30, 15, 60, 0.9) 100%);
+}
+
+.invitacion-hero-text .eyebrow {
+  color: #f4e2ff;
+}
+
+.invitacion-hero-text h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.1rem, 9vw, 2.9rem);
+  margin: 0.2rem 0;
+  color: #fff;
+}
+
+.invitacion-hero-text .invitacion-date {
+  color: #ffe6a8;
+}
+
 .invitacion-date {
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -45,10 +91,55 @@
   gap: 0.35rem;
 }
 
+.invitacion-card--countdown {
+  gap: 0.5rem;
+}
+
+.invitacion-card-kicker {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  color: var(--accent-gold-dark);
+  margin: 0;
+}
+
 .invitacion-card h2 {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.6rem;
   margin: 0.15rem 0 0.35rem;
+}
+
+/* Fotos reales dentro de cada card, con una insignia (hora/fecha) superpuesta
+   para que la información clave quede visible sin ocupar espacio extra. */
+.invitacion-photo {
+  position: relative;
+  width: 100%;
+  margin: 0 0 0.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(141, 93, 36, 0.2);
+}
+
+.invitacion-photo img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+.invitacion-photo-badge {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(30, 15, 60, 0.78);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  backdrop-filter: blur(3px);
 }
 
 .invitacion-icon {
@@ -97,6 +188,14 @@
   color: var(--accent-gold-dark);
 }
 
+.invitacion-footer-mark {
+  display: block;
+  width: 44px;
+  height: auto;
+  margin: 0 auto 0.6rem;
+  opacity: 0.85;
+}
+
 @media (max-width: 480px) {
   .invitacion-main {
     padding-top: 1.75rem;
@@ -104,5 +203,9 @@
 
   .invitacion-card {
     padding: 1.35rem;
+  }
+
+  .invitacion-hero-photo {
+    height: clamp(180px, 38vh, 260px);
   }
 }
