@@ -735,7 +735,7 @@ h1 {
   main {
     width: calc(100% - 1rem);
     max-width: 1040px;
-    margin-bottom: 6.5rem;
+    margin-bottom: 8rem;
   }
 
   .mobile-register-cta {
@@ -927,10 +927,11 @@ h1 {
   transition: opacity 500ms ease, transform 500ms ease;
 }
 
-/* Solo se ocultan las tarjetas cuando el JS de la ruta esta activo */
+/* Sutil: la tarjeta activa se realza ligeramente, pero nunca desaparece
+   (evita que quede invisible si el JS de scroll no llega a activarla) */
 .roadmap.js-anim .stop:not(.is-active) .stop-card {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 0.88;
+  transform: translateY(6px);
 }
 
 .roadmap.js-anim .stop:not(.is-active) .stop-node {

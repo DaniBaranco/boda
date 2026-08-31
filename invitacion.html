@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Invitación digital de la boda de Almu y Dani: cuenta atrás, ceremonia, recepción, autobús y preboda."
+    />
+    <title>Almu & Dani | Invitación 03-07-2027</title>
+
+    <!-- Esta es la app instalable: una invitación digital simple, sin formularios -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#8d62ff" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Almu & Dani" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./css/styles.css?v=22" />
+    <link rel="stylesheet" href="./css/invitacion.css?v=1" />
+  </head>
+  <body class="invitacion-body">
+    <div class="page-background" aria-hidden="true"></div>
+
+    <main class="invitacion-main">
+      <header class="invitacion-header">
+        <button
+          id="installBtn"
+          class="install-btn is-hidden"
+          type="button"
+          title="Instalar la invitación en el móvil"
+          aria-label="Instalar la invitación en el móvil"
+        >
+          <i class="bi bi-download" aria-hidden="true"></i>
+          <span>Instalar</span>
+        </button>
+        <p class="eyebrow">¡Nos casamos!</p>
+        <h1>Almu &amp; Dani</h1>
+        <p class="invitacion-date">03 · 07 · 2027</p>
+      </header>
+
+      <section class="glass-panel invitacion-card" aria-label="Cuenta atrás para la boda">
+        <div class="countdown" data-countdown aria-label="Cuenta atrás para la boda">
+          <div class="countdown-cell">
+            <span class="countdown-num" data-countdown-unit="days">--</span>
+            <span class="countdown-label">días</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" data-countdown-unit="hours">--</span>
+            <span class="countdown-label">horas</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" data-countdown-unit="minutes">--</span>
+            <span class="countdown-label">min</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" data-countdown-unit="seconds">--</span>
+            <span class="countdown-label">seg</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass-panel invitacion-card" aria-label="Ceremonia">
+        <span class="invitacion-icon"><i class="bi bi-heart-fill" aria-hidden="true"></i></span>
+        <span class="stop-time">18:30</span>
+        <h2>Ceremonia</h2>
+        <p class="stop-place">
+          <strong>Iglesia de Santa María Magdalena</strong><br />
+          Torrelaguna (Madrid)
+        </p>
+        <a
+          class="btn btn-como-llegar"
+          href="https://www.google.com/maps/dir/?api=1&destination=Iglesia+de+Santa+Maria+Magdalena+Torrelaguna+Madrid"
+          target="_blank"
+          rel="noreferrer noopener"
+        ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Cómo llegar a la iglesia</a>
+      </section>
+
+      <section class="glass-panel invitacion-card" aria-label="Recepción y celebración">
+        <span class="invitacion-icon"><i class="bi bi-cup-straw" aria-hidden="true"></i></span>
+        <span class="stop-time">20:00</span>
+        <h2>Recepción y celebración</h2>
+        <p class="stop-place">
+          <strong>Finca Casa de Oficios</strong><br />
+          Torremocha del Jarama (Madrid)
+        </p>
+        <p class="invitacion-note">Cóctel, banquete y fiesta hasta que el cuerpo aguante.</p>
+        <a
+          class="btn btn-como-llegar"
+          href="https://www.google.com/maps/dir/?api=1&destination=Finca+Casa+de+Oficios+Torremocha+del+Jarama+Madrid"
+          target="_blank"
+          rel="noreferrer noopener"
+        ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Cómo llegar a la finca</a>
+      </section>
+
+      <section class="glass-panel invitacion-card" aria-label="Autobús de ida y vuelta">
+        <span class="invitacion-icon"><i class="bi bi-bus-front" aria-hidden="true"></i></span>
+        <h2>Autobús</h2>
+        <div class="invitacion-bus">
+          <div class="invitacion-bus-leg">
+            <span class="bus-time-pill">17:00 h</span>
+            <p>Ida desde Metro Sainz de Baranda (Doctor Esquerdo, 109)</p>
+          </div>
+          <div class="invitacion-bus-leg">
+            <span class="bus-time-pill">03:00 h</span>
+            <span class="bus-time-pill">05:00 h</span>
+            <p>Vuelta desde la finca, con parada en el mismo punto de recogida.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass-panel invitacion-card" aria-label="Preboda">
+        <span class="invitacion-icon"><i class="bi bi-stars" aria-hidden="true"></i></span>
+        <h2>Preboda</h2>
+        <p class="invitacion-note">El día antes, para calentar motores en buena compañía.</p>
+        <p class="stop-place">
+          <strong>The Irish Rover</strong><br />
+          Av. de Brasil 7, Madrid
+        </p>
+        <p class="invitacion-note">02 de julio de 2027 · 20:00 – 00:00 h</p>
+      </section>
+
+      <footer class="invitacion-footer">
+        <p>Con todo nuestro cariño,<br />Almu &amp; Dani</p>
+      </footer>
+    </main>
+
+    <script type="module">
+      import { initCountdown } from "./js/roadmap.js";
+      initCountdown();
+    </script>
+    <script type="module" src="./js/pwa.js"></script>
+  </body>
+</html>

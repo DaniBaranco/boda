@@ -1,0 +1,108 @@
+/* ============================================================
+   INVITACIÓN DIGITAL (app instalable)
+   Vista simplificada, independiente del front completo: solo
+   la información esencial para el invitado, sin formularios.
+   ============================================================ */
+
+.invitacion-body {
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+.invitacion-main {
+  width: min(560px, calc(100% - 2rem));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 2.5rem;
+}
+
+.invitacion-header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.invitacion-header h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  margin: 0.25rem 0;
+}
+
+.invitacion-date {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold-dark);
+  margin: 0;
+}
+
+.invitacion-card {
+  padding: 1.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.invitacion-card h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  margin: 0.15rem 0 0.35rem;
+}
+
+.invitacion-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #b78bff, #8d62ff);
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.invitacion-note {
+  color: var(--text-soft);
+  margin: 0.15rem 0;
+}
+
+.invitacion-bus {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 0.4rem;
+}
+
+.invitacion-bus-leg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.invitacion-bus-leg p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.invitacion-footer {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  padding: 1.5rem 0 1rem;
+  color: var(--accent-gold-dark);
+}
+
+@media (max-width: 480px) {
+  .invitacion-main {
+    padding-top: 1.75rem;
+  }
+
+  .invitacion-card {
+    padding: 1.35rem;
+  }
+}
