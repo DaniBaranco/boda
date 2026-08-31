@@ -124,6 +124,59 @@ h2,
   transform: scale(0.95);
 }
 
+.install-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(rgba(255, 252, 247, 0.96), rgba(255, 252, 247, 0.96)) padding-box,
+    linear-gradient(120deg, var(--band-grad-start), var(--band-grad-mid), var(--band-grad-end)) border-box;
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-gold-dark);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  box-shadow: 0 6px 20px rgba(80, 67, 171, 0.22);
+  z-index: 100;
+  line-height: 1;
+}
+
+.install-btn i {
+  font-size: 1.05rem;
+}
+
+.install-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(80, 67, 171, 0.35);
+}
+
+.install-btn:active {
+  transform: scale(0.95);
+}
+
+.install-btn.is-hidden {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .install-btn {
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.45rem 0.75rem;
+    font-size: 0;
+  }
+
+  .install-btn i {
+    font-size: 1.2rem;
+  }
+}
+
 .confetti-btn.is-open {
   transform: rotate(360deg);
 }

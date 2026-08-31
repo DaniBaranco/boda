@@ -8,6 +8,17 @@
       content="App de inscripción para la boda de Almu y Dani. Hoja de ruta del día, información del evento y acceso directo al formulario de invitados."
     />
     <title>Almu & Dani | Boda 03-07-2027</title>
+
+    <!-- PWA: instalable en el móvil, con toda la info de la boda -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#8d62ff" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Almu & Dani" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,6 +56,16 @@
     </div>
 
     <header class="site-header">
+      <button
+        id="installBtn"
+        class="install-btn is-hidden"
+        type="button"
+        title="Instalar la app de la boda"
+        aria-label="Instalar la app de la boda"
+      >
+        <i class="bi bi-download" aria-hidden="true"></i>
+        <span>Instalar app</span>
+      </button>
       <button
         id="confettiBtn"
         class="confetti-btn"
@@ -363,5 +384,6 @@
       initScrollProgress();
       AOS.init({ duration: 700, once: true, offset: 80 });
     </script>
+    <script type="module" src="./js/pwa.js"></script>
   </body>
 </html>
