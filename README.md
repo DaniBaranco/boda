@@ -6,14 +6,16 @@ App web ligera para la boda de Almu y Dani con:
 - Boton de inscripcion siempre visible en mobile
 - Enlace a Google Forms (con almacenamiento en Google Sheets)
 - **Instalable como app en el movil (PWA)**: los invitados pueden anadirla a
-  su pantalla de inicio y consultar cuenta atras, ceremonia, finca, autobus,
-  menu y preboda incluso sin cobertura
+  su pantalla de inicio como una invitacion digital simple, con cuenta atras,
+  ceremonia, finca, autobus y preboda, incluso sin cobertura
 - Orquestador base para coordinar agentes de diseno, seguridad, QA, test y formularios
 
 ## Estructura
 
-- `index.html`: home principal
+- `index.html`: home principal (web completa, con inscripcion)
+- `invitacion.html`: invitacion digital simplificada (es la app instalable, sin formularios)
 - `css/styles.css`: estilos globales responsive
+- `css/invitacion.css`: estilos propios de la invitacion digital simplificada
 - `js/config.js`: datos de boda + URL de formulario
 - `js/form-link.js`: validacion y aplicacion de enlaces de Google Forms
 - `js/app.js`: inicializacion de la app y enlaces de inscripcion
@@ -70,17 +72,30 @@ El CLI de Vercel (`vercel`) queda como opcion para despliegues manuales o consul
 
 ## App instalable (PWA)
 
-La web funciona como Progressive Web App: cualquier invitado puede "instalarla"
-en su movil (Android/Chrome: boton **Instalar app** o menu > *Anadir a
-pantalla de inicio*; iPhone/Safari: *Compartir* > *Anadir a pantalla de
-inicio*) y usarla como si fuera una app nativa, con icono propio y sin la
-barra del navegador. No es una app distinta: es el mismo front, con:
+Los invitados pueden "instalar" una **invitación digital** en su móvil
+(Android/Chrome: botón **Instalar app** o menú > *Añadir a pantalla de
+inicio*; iPhone/Safari: *Compartir* > *Añadir a pantalla de inicio*) y
+consultarla como si fuera una app nativa, con icono propio y sin la barra del
+navegador. No es una copia del front completo: es una vista **simplificada**
+(`invitacion.html`) con solo la información esencial para el día de la boda:
 
-- `manifest.webmanifest`: nombre, iconos y colores de la app
-- `sw.js`: Service Worker que cachea el "app shell" para poder abrir la web
-  sin conexion (util el dia del evento, con cobertura irregular en la finca)
-- `js/pwa.js`: registra el Service Worker y muestra el boton **Instalar app**
-  cuando el navegador lo permite
+- Cuenta atrás
+- Ceremonia (lugar, hora, cómo llegar)
+- Recepción/finca (lugar, cómo llegar)
+- Horarios de autobús (ida y vuelta)
+- Preboda (fecha, hora, lugar)
+
+A propósito **no incluye** el formulario de confirmación de asistencia: es
+solo para llevar la invitación siempre a mano, no para inscribirse.
+
+- `manifest.webmanifest`: nombre, iconos, colores y `start_url` apuntando a
+  `invitacion.html`
+- `sw.js`: Service Worker que cachea el "app shell" (ambas páginas) para
+  poder abrir la invitación sin conexión (util el dia del evento, con
+  cobertura irregular en la finca)
+- `js/pwa.js`: registra el Service Worker y muestra el botón **Instalar app**
+  cuando el navegador lo permite (presente tanto en `index.html` como en
+  `invitacion.html`)
 
 ### Regenerar iconos
 
