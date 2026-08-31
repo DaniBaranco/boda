@@ -2,21 +2,21 @@
 // Estrategia: precache del app shell para poder abrir la web sin conexión
 // (útil el día del evento, con cobertura irregular en la finca).
 
-const VERSION = 'v3';
+const VERSION = 'v4';
 const CACHE   = `boda-almu-dani-${VERSION}`;
 
 const APP_SHELL = [
   './',
   './index.html',
   './invitacion.html',
-  './css/styles.css?v=24',
+  './css/styles.css?v=25',
   './css/invitacion.css?v=2',
   './js/config.js',
   './js/form-link.js',
   './js/app.js?v=3',
   './js/confetti.js?v=1',
   './js/roadmap.js?v=3',
-  './js/pwa.js?v=2',
+  './js/pwa.js?v=3',
   './manifest.webmanifest',
   './vendor/bootstrap/bootstrap.min.css',
   './vendor/bootstrap/bootstrap.bundle.min.js',
