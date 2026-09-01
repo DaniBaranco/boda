@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./vendor/bootstrap-icons/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./vendor/aos/aos.css" />
-    <link rel="stylesheet" href="./css/styles.css?v=29" />
+    <link rel="stylesheet" href="./css/styles.css?v=30" />
     <!-- Confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js" defer></script>
     <script src="./vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
@@ -213,6 +213,12 @@
         </div>
       </section>
 
+      <!--
+        BLOQUE DE AUTOBÚS: oculto temporalmente (2026-09-01) porque todavía no
+        tenemos confirmados ni los horarios ni el punto de recogida. Se
+        restaurará más adelante con la información definitiva (probablemente
+        coincidiendo con los datos que ya aparecen aquí abajo).
+
       <section class="glass-panel section-card bus-card" aria-label="Autobús de ida y vuelta" data-aos="fade-up">
         <h2>¿Necesitarás autobús de ida y vuelta?</h2>
         <p>
@@ -261,6 +267,7 @@
           </a>
         </div>
       </section>
+      -->
 
       <section class="glass-panel section-card faq-section" aria-label="Preguntas frecuentes" data-aos="fade-up">
         <h2>Preguntas frecuentes</h2>
@@ -302,13 +309,26 @@
           <summary>¿Hasta cuándo puedo confirmar asistencia?</summary>
           <div class="faq-content">
             <p>
-              Te recomendamos confirmar cuanto antes para ayudarnos con la organización.
-              La fecha límite oficial de RSVP se comunicará por el mismo canal de invitación y se reflejará en esta página.
+              Puedes confirmar tu asistencia hasta un mes antes de la boda, es decir, hasta el 3 de junio de 2027.
+              Aun así, te recomendamos hacerlo cuanto antes para ayudarnos con la organización.
             </p>
           </div>
         </details>
       </section>
 
+      <!--
+        SECCIÓN PREBODA: se mantiene visible pero como "misterio" (2026-09-01)
+        porque el lugar todavía no está confirmado al 100%. Se difumina la
+        foto, la ubicación y el botón "Cómo llegar" con la clase
+        "preboda-mystery" (ver CSS) y se añade una nota de "pendiente de
+        confirmar". Datos originales (por si cambian al confirmarse):
+          - Lugar: The Irish Rover, Av. de Brasil 7, Madrid
+          - Fecha/hora: 02 de julio de 2027, 20:00–00:00 h
+          - Enlace maps: https://www.google.com/maps/dir/?api=1&destination=The+Irish+Rover+Avenida+de+Brasil+7+Madrid
+        Cuando se confirme, quitar la clase "preboda-mystery" de
+        ".preboda-details", ".btn-preboda-maps" y ".preboda-photo", y quitar
+        la nota "preboda-pending".
+      -->
       <section class="preboda-section" aria-label="Preboda" data-aos="fade-up">
         <div class="preboda-inner">
           <div class="preboda-text">
@@ -319,7 +339,11 @@
               juntos, calentar motores y disfrutar de una tarde tranquila en buena compañía.
               ¡La excusa perfecta para llegar al gran día ya en modo celebración!
             </p>
-            <div class="preboda-details">
+            <p class="preboda-pending">
+              <i class="bi bi-hourglass-split" aria-hidden="true"></i>
+              Lugar y hora pendientes de confirmar. ¡Pronto desvelamos el misterio!
+            </p>
+            <div class="preboda-details preboda-mystery" aria-hidden="true">
               <div class="preboda-detail">
                 <i class="bi bi-calendar-heart-fill" aria-hidden="true"></i>
                 <span>02 de julio de 2027</span>
@@ -340,10 +364,12 @@
               href="https://www.google.com/maps/dir/?api=1&destination=The+Irish+Rover+Avenida+de+Brasil+7+Madrid"
               target="_blank"
               rel="noreferrer noopener"
-              class="btn btn-preboda-maps"
+              class="btn btn-preboda-maps preboda-mystery"
+              aria-hidden="true"
+              tabindex="-1"
             ><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Cómo llegar</a>
           </div>
-          <figure class="preboda-photo">
+          <figure class="preboda-photo preboda-mystery">
             <img
               src="./images/Irish_Rover_Bernabeu.webp"
               alt="The Irish Rover, junto al Bernabéu"

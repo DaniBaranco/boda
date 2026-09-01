@@ -1434,6 +1434,34 @@ h1 {
   color: rgba(255, 255, 255, 0.92);
 }
 
+.preboda-pending {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Bloques de la preboda que aún son "misterio": foto, ubicación y botón de
+   cómo llegar se difuminan hasta que se confirme el lugar definitivo. */
+.preboda-mystery {
+  filter: blur(9px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.preboda-photo.preboda-mystery img {
+  filter: blur(14px) saturate(0.9);
+  transform: scale(1.08);
+}
+
 .preboda-details {
   display: flex;
   flex-direction: column;
