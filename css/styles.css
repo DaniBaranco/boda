@@ -655,7 +655,7 @@ h1 {
 .video-popup__close {
   position: absolute;
   top: 0.6rem;
-  right: 0.6rem;
+  left: 0.6rem;
   z-index: 1;
   display: grid;
   place-items: center;

@@ -41,21 +41,23 @@ function initVideoPopup() {
 
     if (video) {
       video.muted = false;
-      video.play().catch(() => {
-        // El navegador bloquea el autoplay con sonido: reproducimos en
-        // silencio y quitamos el silencio en cuanto el usuario interactúe.
+      const tryUnmutedPlay = () => video.play();
+      const fallbackToMuted = () => {
         video.muted = true;
         video.play().catch(() => {
           // Autoplay bloqueado por completo: el usuario puede darle al play.
         });
+        // En cuanto el usuario interactúa (tocar/click en cualquier sitio),
+        // quitamos el silencio para que el sonido quede siempre activado.
         const unmuteOnInteraction = () => {
           video.muted = false;
-          document.removeEventListener('touchstart', unmuteOnInteraction);
-          document.removeEventListener('click', unmuteOnInteraction);
+          video.play().catch(() => {});
         };
         document.addEventListener('touchstart', unmuteOnInteraction, { once: true });
         document.addEventListener('click', unmuteOnInteraction, { once: true });
-      });
+      };
+
+      tryUnmutedPlay().catch(fallbackToMuted);
     }
   };
 
