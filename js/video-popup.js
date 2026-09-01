@@ -38,9 +38,25 @@ function initVideoPopup() {
     popup.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     sessionStorage.setItem(SESSION_KEY, '1');
-    video?.play().catch(() => {
-      // Autoplay bloqueado por el navegador: el usuario puede darle al play.
-    });
+
+    if (video) {
+      video.muted = false;
+      video.play().catch(() => {
+        // El navegador bloquea el autoplay con sonido: reproducimos en
+        // silencio y quitamos el silencio en cuanto el usuario interactúe.
+        video.muted = true;
+        video.play().catch(() => {
+          // Autoplay bloqueado por completo: el usuario puede darle al play.
+        });
+        const unmuteOnInteraction = () => {
+          video.muted = false;
+          document.removeEventListener('touchstart', unmuteOnInteraction);
+          document.removeEventListener('click', unmuteOnInteraction);
+        };
+        document.addEventListener('touchstart', unmuteOnInteraction, { once: true });
+        document.addEventListener('click', unmuteOnInteraction, { once: true });
+      });
+    }
   };
 
   const closePopup = () => {
